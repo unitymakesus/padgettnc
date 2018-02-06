@@ -1,0 +1,137 @@
+/*
+Theme Name: Padgett - Divi Child Theme
+Theme URI: http://www.elegantthemes.com/gallery/divi/
+Description: Child theme based on the Divi theme
+Author: Unity Digital Agency
+Author URI: https://www.unitymakes.us
+Template: Divi
+Version: 1.0.0
+*/
+
+.wpcf7-text, .wpcf7-textarea, .wpcf7-captchar {
+background-color: #eee !important;
+border: none !important;
+width: 100% !important;
+-moz-border-radius: 0 !important;
+-webkit-border-radius: 0 !important;
+border-radius: 0 !important;
+font-size: 14px;
+color: #999 !important;
+padding: 16px !important;
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.wpcf7-form label {
+  font-weight: bold;
+}
+
+.wpcf7-list-item-label {
+  font-weight: normal;
+}
+
+.wpcf7-form .req {
+  color: red;
+}
+
+.wpcf7-form-control-wrap {
+  margin-bottom: 1em;
+  display: block;
+}
+
+.wpcf7-form-control-wrap + br {
+  display: none;
+}
+
+.wpcf7-submit {
+/*color: #004a91 !important;*/
+background: #63b943 !important;
+color: #ffffff !important;
+margin: 8px auto 0;
+cursor: pointer;
+font-size: 20px;
+font-weight: 500;
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px;
+padding: 6px 20px;
+line-height: 1.7em;
+background: transparent;
+border: 2px solid;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-moz-transition: all 0.2s;
+-webkit-transition: all 0.2s;
+transition: all 0.2s;
+}
+
+.wpcf7-submit:hover {
+background: #004a91 !important;
+padding: 6px 20px !important;
+}
+
+.dropdown-left > ul.sub-menu {
+  right: 0;
+}
+
+#top-menu ul.sub-menu a {
+  padding: 10px 0;
+  line-height: 1.2em;
+}
+
+#mobile_menu li {
+  position: relative;
+}
+#mobile_menu li::before {
+  display: none;
+}
+#mobile_menu li a {
+  background: none;
+  font-weight: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#mobile_menu .menu-item-has-children > a {
+  position: relative;
+}
+#mobile_menu .menu-item-has-children > a::after {
+  display: block !important;
+  font-family: 'ETmodules';
+  text-align: center;
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  position: absolute;
+  font-size: 16px;
+  content: '\4c';
+  top: 13px;
+  right: 10px;
+}
+#mobile_menu .menu-item-has-children .sub-menu {
+  display: none;
+  opacity: 0;
+  overflow: hidden;
+  height: 0;
+  transition: all .3s ease-in-out;
+  padding-top: 0;
+}
+#mobile_menu .menu-item-has-children.visible .sub-menu {
+  display: block;
+  height: auto;
+  opacity: 1;
+}
+#mobile_menu .menu-item-has-children.visible > a::after {
+  content: '\4b';
+}
+
+/* #main-header .et_mobile_menu .menu-item-has-children > a { background-color: transparent; position: relative; }
+#main-header .et_mobile_menu .menu-item-has-children > a:after { font-family: 'ETmodules'; text-align: center; speak: none; font-weight: normal; font-variant: normal; text-transform: none; -webkit-font-smoothing: antialiased; position: absolute; }
+#main-header .et_mobile_menu .menu-item-has-children > a:after { font-size: 16px; content: '4c'; top: 13px; right: 10px; }
+#main-header .et_mobile_menu .menu-item-has-children.visible > a:after { content: '4d'; }
+#main-header .et_mobile_menu ul.sub-menu { display: none !important; visibility: hidden !important;  transition: all 1.5s ease-in-out;}
+#main-header .et_mobile_menu .visible > ul.sub-menu { display: block !important; visibility: visible !important; } */
