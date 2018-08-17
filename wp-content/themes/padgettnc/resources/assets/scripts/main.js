@@ -15,7 +15,7 @@ var WebFont = require('webfontloader');
 
 WebFont.load({
  google: {
-   families: ['Lato:300,400,700'],
+   families: ['Hind:400,500,600,700', 'Roboto:300, 300i, 400i,700,700i'],
  },
 });
 

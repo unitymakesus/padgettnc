@@ -30,4 +30,8 @@ class App extends Controller
         }
         return get_the_title();
     }
+
+    public function hero() {
+      return get_field('hero');
+    }
 }

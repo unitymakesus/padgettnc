@@ -1,2 +1,33 @@
-// TODO: .banner .nav li {}
-// TODO: .banner .nav a {}
+.header-homepage {
+  position: relative;
+  height: 87vh;
+  background: rgba($color-blue-darker, 0.6);
+  text-align: center;
+  color: white;
+
+  video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -10;
+  }
+
+  .scroll-arrow p {
+    margin: 0;
+
+    &:first-of-type {
+      transform: rotate(-90deg);
+      position: relative;
+      top: 10px;
+      font-size: $size-extralarge;
+    }
+  }
+
+  .hero {
+    margin-top: 10%;
+  }
+}

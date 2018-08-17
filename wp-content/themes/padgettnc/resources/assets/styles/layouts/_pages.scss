@@ -1,0 +1,31 @@
+.home {
+  .our-values {
+    article {
+      background: $color-blue;
+      color: $color-white;
+      border: 1px solid $color-white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+
+      img {
+        width: 50px;
+      }
+
+      .hover-quote {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: $color-green;
+        align-items: center;
+      }
+
+      &:hover > .hover-quote {
+        display: flex;
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+/** Top Navigation Bar */
+.menu-top-nav-container {
+  ul {
+    display: flex;
+    margin-bottom: 0;
+  }
+
+  button {
+    float: right;
+  }
+}
+
+/** Main Navigation */
+.nav-primary {
+  background: $color-white;
+
+  ul {
+    display: flex;
+    justify-content: center;
+
+    a {
+      font-family: $font-headers;
+      font-size: $size-regularmedium;
+      color: $color-blue;
+      text-align: center;
+      text-transform: uppercase;
+      padding: 0 20px;
+      position: relative;
+
+      &:hover {
+        background: transparent;
+        color: $color-green;
+      }
+    }
+  }
+}
+
+/** Main navigation icons and icon hover states */
+#menu-main-menu {
+  li {
+    a {
+      &::before {
+        content: '';
+        position: relative;
+        width: 25px;
+        height: 25px;
+        background-size: contain;
+        display: inline-block;
+        top: 5px;
+        right: 5px;
+      }
+    }
+
+    &.icon-book a::before {
+      background-image: url('../images/icon-book.svg');
+    }
+
+    &.icon-contact a::before {
+      background-image: url('../images/icon-contact.svg');
+    }
+
+    &.icon-list a::before {
+      background-image: url('../images/icon-list.svg');
+    }
+
+    &.icon-stars a::before {
+      background-image: url('../images/icon-stars.svg');
+    }
+
+    &:hover {
+      &.icon-book a::before {
+        background-image: url('../images/icon-book-hover.svg');
+      }
+
+      &.icon-contact a::before {
+        background-image: url('../images/icon-contact-hover.svg');
+      }
+
+      &.icon-list a::before {
+        background-image: url('../images/icon-list-hover.svg');
+      }
+
+      &.icon-stars a::before {
+        background-image: url('../images/icon-stars-hover.svg');
+      }
+    }
+  }
+}

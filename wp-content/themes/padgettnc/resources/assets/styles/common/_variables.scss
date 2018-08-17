@@ -1,5 +1,20 @@
 /** Colors */
-$brand-primary:         #525ddc;
+$color-blue: #004990;
+$color-blue-darker: darken($color-blue, 20%);
+$color-green: #7ea118;
+$color-black: #121212;
+$color-white: #fff;
+
+/** Fonts */
+$font-headers: 'Hind', sans-serif;
+$font-body: 'Roboto', sans-serif;
+
+/** Font Sizes */
+$size-extralarge: 45px;
+$size-large: 40px;
+$size-medium: 25px;
+$size-regularmedium: 20px;
+$size-regular: 17px;
 
 /** Box Model  */
-$spacer:                2rem;
+$spacer: 2rem;

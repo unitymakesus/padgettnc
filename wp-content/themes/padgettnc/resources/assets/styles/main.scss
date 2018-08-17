@@ -1,9 +1,9 @@
 @import "~materialize-css/sass/materialize";
 @import "common/variables";
-@import "./autoload/**/*";
+@import "common/typography";
 @import "common/global";
 @import "components/buttons";
-@import "components/comments";
+@import "components/nav";
 @import "components/forms";
 @import "components/wp-classes";
 @import "layouts/header";

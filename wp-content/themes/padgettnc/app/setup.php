@@ -36,6 +36,16 @@ add_action('after_setup_theme', function () {
     add_theme_support('title-tag');
 
     /**
+     * Enable logo uploader in customizer
+     */
+     add_theme_support( 'custom-logo' );
+
+     add_image_size('logo', 200, 350, false);
+     add_theme_support('custom-logo', array(
+       'size' => 'logo'
+     ));
+
+    /**
      * Register navigation menus
      * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
      */
@@ -80,12 +90,20 @@ add_action('widgets_init', function () {
         'after_title'   => '</h3>'
     ];
     register_sidebar([
-        'name'          => __('Primary', 'sage'),
-        'id'            => 'sidebar-primary'
+        'name'          => __('Footer Logos', 'sage'),
+        'id'            => 'footer-logos'
     ] + $config);
     register_sidebar([
-        'name'          => __('Footer', 'sage'),
-        'id'            => 'sidebar-footer'
+        'name'          => __('Footer-Left', 'sage'),
+        'id'            => 'footer-left'
+    ] + $config);
+    register_sidebar([
+        'name'          => __('Footer-Center', 'sage'),
+        'id'            => 'footer-center'
+    ] + $config);
+    register_sidebar([
+        'name'          => __('Footer-Right', 'sage'),
+        'id'            => 'footer-right'
     ] + $config);
 });
 
