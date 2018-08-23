@@ -1,0 +1,89 @@
+.diamond-container {
+  position: relative;
+  height: 500px;
+  margin-left: 15%;
+  margin-top: 100px;
+
+  .diamond {
+    color: $color-white;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0 10px;
+    transform: rotate(45deg);
+    width: 200px;
+    height: 200px;
+    background: $color-green;
+    border: 1px solid $color-white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    transform: rotate(-45deg);
+  }
+
+  .main-diamond {
+    @extend .hidden;
+
+    left: 162px;
+    top: 91px;
+  }
+
+  .hidden {
+    background: $color-blue;
+    height: 300px;
+    width: 300px;
+    top: 91px;
+    left: 163px;
+    text-align: center;
+  }
+
+  .visible {
+    .hover-icon {
+      display: none;
+    }
+
+    &:nth-of-type(1) {
+      left: 0;
+      top: 0;
+    }
+
+    &:nth-of-type(2) {
+      top: 141px;
+      left: -142px;
+    }
+
+    &:nth-of-type(3) {
+      top: 283px;
+    }
+
+    &:nth-of-type(4) {
+      left: 426px;
+    }
+
+    &:nth-of-type(5) {
+      top: 141px;
+      left: 568px;
+    }
+
+    &:nth-of-type(6) {
+      top: 283px;
+      left: 426px;
+    }
+  }
+}
+
+.diamond-is-active {
+  background: $color-white !important;
+  color: $color-green !important;
+  border-color: $color-green !important;
+}
+
+.main-diamond-is-active {
+  background: $color-green !important;
+  color: $color-white !important;
+  z-index: 10;
+}

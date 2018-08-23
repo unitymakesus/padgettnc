@@ -26,6 +26,8 @@
     "extends": "stylelint-config-standard",
     "rules": {
       "no-empty-source": null,
+      "no-descending-specificity": null,
+      "selector-list-comma-newline-after": null,
       "at-rule-no-unknown": [
         true,
         {
@@ -104,6 +106,7 @@
   },
   "dependencies": {
     "jquery": "^3.3.1",
+    "material-design-icons": "^3.0.1",
     "materialize-css": "^0.100.2",
     "webfontloader": "^1.6.28"
   }

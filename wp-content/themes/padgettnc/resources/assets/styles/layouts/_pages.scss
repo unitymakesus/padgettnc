@@ -1,4 +1,8 @@
 .home {
+  .why-padgett {
+    padding: 5em 0;
+  }
+
   .our-values {
     article {
       background: $color-blue;
@@ -7,25 +11,63 @@
       text-align: center;
       padding: 20px;
       position: relative;
+      transition: max-height 0.5s;
 
       img {
         width: 50px;
       }
 
       .hover-quote {
-        display: none;
         position: absolute;
-        top: 0;
+        bottom: 100%;
         left: 0;
-        height: 100%;
+        overflow: hidden;
         width: 100%;
+        height: 0;
         background: $color-green;
+        transition: 0.5s ease;
+        display: flex;
         align-items: center;
       }
 
       &:hover > .hover-quote {
-        display: flex;
+        bottom: 0;
+        height: 100%;
       }
     }
+  }
+
+  .client-spotlight {
+    background: $color-blue;
+    padding: 6em 5em;
+
+    &-card {
+      padding: 30px;
+      background: white;
+
+      h2 {
+        text-align: center;
+      }
+
+      .company-logo {
+        text-align: center;
+        padding-top: 2em;
+      }
+    }
+
+    @media #{$large-and-down} {
+      padding: 6em 0;
+    }
+  }
+
+  .cta {
+    height: 325px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
   }
 }

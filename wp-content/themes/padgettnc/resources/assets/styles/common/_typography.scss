@@ -25,3 +25,11 @@ p {
     font-size: $size-regularmedium;
   }
 }
+
+a {
+  color: $color-green;
+
+  &:hover {
+    border-bottom: 3px solid $color-green;
+  }
+}

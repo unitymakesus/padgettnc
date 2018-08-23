@@ -17,4 +17,8 @@ class PageHomepage extends Controller
   public function services() {
     return get_field('our_services');
   }
+
+  public function cta() {
+    return get_field('cta');
+  }
 }

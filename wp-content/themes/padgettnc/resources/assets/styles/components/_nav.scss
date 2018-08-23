@@ -1,8 +1,16 @@
 /** Top Navigation Bar */
+.topnav-wrapper {
+  width: 80%;
+
+  .btn {
+    float: right;
+  }
+}
+
 .menu-top-nav-container {
   ul {
     display: flex;
-    margin-bottom: 0;
+    margin-top: 0;
   }
 
   button {
@@ -11,77 +19,169 @@
 }
 
 /** Main Navigation */
-.nav-primary {
+.menu-main-menu-container {
   background: $color-white;
 
-  ul {
+  .nav {
     display: flex;
     justify-content: center;
 
-    a {
-      font-family: $font-headers;
-      font-size: $size-regularmedium;
-      color: $color-blue;
-      text-align: center;
-      text-transform: uppercase;
-      padding: 0 20px;
-      position: relative;
-
-      &:hover {
-        background: transparent;
-        color: $color-green;
-      }
-    }
-  }
-}
-
-/** Main navigation icons and icon hover states */
-#menu-main-menu {
-  li {
-    a {
-      &::before {
-        content: '';
+    & > li {
+      & > a {
+        font-family: $font-headers;
+        font-size: $size-regularmedium;
+        color: $color-blue;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 0 35px;
         position: relative;
-        width: 25px;
-        height: 25px;
-        background-size: contain;
-        display: inline-block;
-        top: 5px;
-        right: 5px;
+
+        &:hover {
+          background: transparent;
+          color: $color-green;
+          border: none;
+        }
+
+        &::before {
+          content: '';
+          position: relative;
+          width: 25px;
+          height: 25px;
+          background-size: contain;
+          display: inline-block;
+          top: 5px;
+          right: 5px;
+        }
       }
-    }
 
-    &.icon-book a::before {
-      background-image: url('../images/icon-book.svg');
-    }
-
-    &.icon-contact a::before {
-      background-image: url('../images/icon-contact.svg');
-    }
-
-    &.icon-list a::before {
-      background-image: url('../images/icon-list.svg');
-    }
-
-    &.icon-stars a::before {
-      background-image: url('../images/icon-stars.svg');
-    }
-
-    &:hover {
+      // Icon Hover States
       &.icon-book a::before {
-        background-image: url('../images/icon-book-hover.svg');
+        background-image: url('../images/icon-book.svg');
       }
 
       &.icon-contact a::before {
-        background-image: url('../images/icon-contact-hover.svg');
+        background-image: url('../images/icon-contact.svg');
       }
 
       &.icon-list a::before {
-        background-image: url('../images/icon-list-hover.svg');
+        background-image: url('../images/icon-list.svg');
       }
 
       &.icon-stars a::before {
-        background-image: url('../images/icon-stars-hover.svg');
+        background-image: url('../images/icon-stars.svg');
+      }
+
+      &:hover {
+        &.icon-book a::before {
+          background-image: url('../images/icon-book-hover.svg');
+        }
+
+        &.icon-contact a::before {
+          background-image: url('../images/icon-contact-hover.svg');
+        }
+
+        &.icon-list a::before {
+          background-image: url('../images/icon-list-hover.svg');
+        }
+
+        &.icon-stars a::before {
+          background-image: url('../images/icon-stars-hover.svg');
+        }
+      }
+    }
+
+    .menu-item-has-children {
+      position: relative;
+
+      a {
+        cursor: default;
+
+        &:hover {
+          border: none;
+        }
+      }
+
+      .sub-menu {
+        z-index: 10;
+        background: $color-green;
+        color: $color-white;
+        transition: max-height 0.3s ease;
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+        text-align: center;
+        margin: 0;
+
+        li {
+          float: none;
+          line-height: 3em;
+
+          &:first-of-type {
+            padding-top: 20px;
+          }
+
+          a {
+            text-transform: uppercase;
+            font-weight: 300;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &:hover, &:focus, &.hover {
+        .sub-menu {
+          height: auto;
+        }
+      }
+    }
+
+    @media #{$large-and-up} {
+      .sub-menu {
+        max-height: 300em;
+        flex-direction: column;
+        position: absolute;
+
+        &::before {
+          content: '';
+          background: linear-gradient(to right top, transparent 0%, transparent 50%, white 50%);
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          width: 50%;
+          height: 20px;
+        }
+
+        &::after {
+          content: '';
+          background: linear-gradient(to left top, transparent 0%, transparent 50%, white 50%);
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          right: 0;
+          width: 50%;
+          height: 20px;
+        }
+      }
+    }
+
+    @media #{$medium-and-down} {
+      flex-flow: nowrap column;
+      margin: 0;
+      max-height: 0;
+
+      li {
+        width: 100%;
+
+        &.hover {
+          .sub-menu {
+            max-height: 300em;
+          }
+        }
+      }
+
+      .mobilenav-active & {
+        max-height: 300em;
       }
     }
   }

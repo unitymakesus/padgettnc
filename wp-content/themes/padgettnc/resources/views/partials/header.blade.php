@@ -26,10 +26,12 @@
       </a>
     </div>
     <div class="col s3 offset-s6">
+      <div class="topnav-wrapper">
         @if (has_nav_menu('top_navigation'))
           {!! wp_nav_menu(['theme_location' => 'top_navigation']) !!}
         @endif
-        <button>Client Portal</button>
+        <a href="#" class="btn btn-tertiary">Client Portal</a>
+      </div>
     </div>
   </div>
 
@@ -47,6 +49,10 @@
 </header>
 
 <nav class="nav-primary">
+  <div class="menu-trigger-wrapper hide-on-large-only">
+    <input type="checkbox" name="menu-trigger" id="menu-trigger" value="true" />
+    <label for="menu-trigger"><i class="material-icons" aria-label="Show navigation menu">menu</i></a>
+  </div>
   @if (has_nav_menu('primary_navigation'))
     {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
   @endif

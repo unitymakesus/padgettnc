@@ -31,25 +31,61 @@
 
   <div class="our-services container">
     @if(($services))
+    <div class="diamond-container">
       @foreach($services as $service)
-        <article>
-          <h3>{{ $service['title'] }}</h3>
-          <div class="hover-service">
-            <p>{{ $service['title'] }}</p>
-            <p>{{ $service['text'] }}</p>
-            <a href="{{ $service['cta_link'] }}">Learn More</a>
-            <img src="{{ $value['icon']}} "/>
+        <article class="diamond visible">
+          <div class="content">
+            <h3>{{ $service['title'] }}</h3>
+            <img class="hover-icon" src="{{ $value['icon']}} "/>
           </div>
         </article>
+
+        <div class="diamond hidden">
+          <div class="content">
+            <h3>{{ $service['title'] }}</h3>
+            <p>{{ $service['text'] }}</p>
+            <a href="{{ $service['cta_link'] }}">Learn More</a>
+          </div>
+        </div>
       @endforeach
+        <article class="diamond main-diamond">
+          <div class="content">
+            <h3>What we do</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </article>
+    </div>
     @endif
   </div>
 
-  <div class="client-spotlight container">
-    <p>this is where the client spotlight will live</p>
-  </div>
+  <?php $the_query = new WP_Query( array( 'category_name' => 'client-spotlight', 'posts_per_page', 1 ) ); ?>
+    <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+      <div class="client-spotlight">
+        <div class="client-spotlight-card container">
+          <h2>Client Spotlight</h2>
+          <div class="row">
+            <div class="col l6 m12 company-logo">
+              <?php if (has_post_thumbnail()) the_post_thumbnail( 'medium' ); ?>
+            </div>
+            <div class="col l6 m12">
+              <p><?php the_excerpt(); ?></p>
 
-  <div class="review">
-    <p>this is where the google reviews will live</p>
+              <a class="btn btn-primary" href="<?php the_permalink() ?>">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php endwhile; wp_reset_postdata(); ?>
+
+  <!-- <div class="reviews container">
+    @php dynamic_sidebar('google-reviews') @endphp
+    <a class="btn btn-primary" target="_blank" href="">See all Google Reviews</a>
+  </div> -->
+
+  @if(($cta))
+  <div class="cta" style="background-image: url({!! $cta['image'] !!})">
+    <h2>{{ $cta['header'] }}</h2>
+    <a class="btn btn-tertiary" href="{!! $cta['cta_link'] !!}">{{ $cta['cta_text'] }}</a>
   </div>
+  @endif
 @endsection

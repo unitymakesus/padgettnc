@@ -105,6 +105,10 @@ add_action('widgets_init', function () {
         'name'          => __('Footer-Right', 'sage'),
         'id'            => 'footer-right'
     ] + $config);
+    register_sidebar([
+        'name'          => __('Google Reviews', 'sage'),
+        'id'            => 'google-reviews'
+    ] + $config);
 });
 
 /**

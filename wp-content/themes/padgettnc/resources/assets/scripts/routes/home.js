@@ -3,6 +3,14 @@ export default {
     // JavaScript to be fired on the home page
   },
   finalize() {
-    // JavaScript to be fired on the home page, after the init JS
+    $('.visible').click(function(){
+      $(this).removeClass('diamond-is-active');
+      $('.diamond.visible').not(this).addClass('diamond-is-active');
+
+      if($(this).next('.hidden').hasClass('main-diamond-is-active')) {
+        $(this).next('.hidden').removeClass('main-diamond-is-active');
+      }
+      $(this).next('.hidden').addClass('main-diamond-is-active');
+    });
   },
 };
