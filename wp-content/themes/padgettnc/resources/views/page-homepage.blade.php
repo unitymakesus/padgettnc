@@ -31,16 +31,16 @@
 
   <div class="our-services container">
     @if(($services))
-    <div class="diamond-container">
+    <div class="diamond-wrapper">
       @foreach($services as $service)
-        <article class="diamond visible">
+        <article class="diamond diamond-services default">
           <div class="content">
             <h3>{{ $service['title'] }}</h3>
             <img class="hover-icon" src="{{ $value['icon']}} "/>
           </div>
         </article>
 
-        <div class="diamond hidden">
+        <div class="diamond diamond-content-container diamond-content">
           <div class="content">
             <h3>{{ $service['title'] }}</h3>
             <p>{{ $service['text'] }}</p>
@@ -48,7 +48,7 @@
           </div>
         </div>
       @endforeach
-        <article class="diamond main-diamond">
+        <article class="diamond diamond-content-container">
           <div class="content">
             <h3>What we do</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>

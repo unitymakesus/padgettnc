@@ -4,13 +4,13 @@ export default {
   },
   finalize() {
     $('.visible').click(function(){
-      $(this).removeClass('diamond-is-active');
-      $('.diamond.visible').not(this).addClass('diamond-is-active');
+      $(this).addClass('diamond-not-active');
+      $('.diamond.visible').not(this).addClass('diamond-not-active');
 
-      if($(this).next('.hidden').hasClass('main-diamond-is-active')) {
-        $(this).next('.hidden').removeClass('main-diamond-is-active');
-      }
-      $(this).next('.hidden').addClass('main-diamond-is-active');
+      // if($(this).next('.hidden').hasClass('main-diamond-is-active')) {
+      //   $(this).next('.hidden').removeClass('main-diamond-is-active');
+      // }
+      // $(this).next('.hidden').addClass('main-diamond-is-active');
     });
   },
 };

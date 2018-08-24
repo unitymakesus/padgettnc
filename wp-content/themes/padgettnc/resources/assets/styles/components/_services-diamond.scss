@@ -1,11 +1,12 @@
-.diamond-container {
-  position: relative;
+.our-services {
   height: 500px;
-  margin-left: 15%;
-  margin-top: 100px;
+  margin: 100px auto;
+}
+
+.diamond-wrapper {
+  position: relative;
 
   .diamond {
-    color: $color-white;
     text-align: center;
     position: absolute;
     left: 0;
@@ -14,8 +15,6 @@
     transform: rotate(45deg);
     width: 200px;
     height: 200px;
-    background: $color-green;
-    border: 1px solid $color-white;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -25,23 +24,19 @@
     transform: rotate(-45deg);
   }
 
-  .main-diamond {
-    @extend .hidden;
-
+  .diamond-content-container {
+    background: $color-blue;
+    height: 300px;
+    width: 300px;
+    text-align: center;
     left: 162px;
     top: 91px;
   }
 
-  .hidden {
-    background: $color-blue;
-    height: 300px;
-    width: 300px;
-    top: 91px;
-    left: 163px;
-    text-align: center;
-  }
+  .diamond-services {
+    background: $color-green;
+    border: 1px solid $color-white;
 
-  .visible {
     .hover-icon {
       display: none;
     }
@@ -76,14 +71,8 @@
   }
 }
 
-.diamond-is-active {
+.not-active {
   background: $color-white !important;
   color: $color-green !important;
   border-color: $color-green !important;
-}
-
-.main-diamond-is-active {
-  background: $color-green !important;
-  color: $color-white !important;
-  z-index: 10;
 }
