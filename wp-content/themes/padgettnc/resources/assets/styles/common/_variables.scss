@@ -1,0 +1,31 @@
+/** Colors */
+$color-blue: #004990;
+$color-blue-darker: darken($color-blue, 20%);
+$color-green: #7ea118;
+$color-black: #121212;
+$color-white: #fff;
+
+/** Fonts */
+$font-headers: 'Hind', sans-serif;
+$font-body: 'Roboto', sans-serif;
+
+/** Font Sizes */
+$size-extralarge: rem-calc(48px);
+$size-large: rem-calc(40px);
+$size-medium: rem-calc(25px);
+$size-regularmedium: rem-calc(20px);
+$size-regular: rem-calc(17px);
+
+/** Box Model  */
+$spacer: 2rem;
+
+/** Modified Grid */
+$small-screen: 768px;
+$medium-screen: 992px;
+$large-screen: 1205px;
+$small-screen-up: 769px;
+$medium-screen-up: 993px;
+$large-screen-up: 1201px;
+$small-and-up: "only screen and (min-width : #{$small-screen-up})";
+$small-and-down: "only screen and (max-width : #{$small-screen})";
+$large-and-down: "only screen and (max-width : #{$large-screen})";

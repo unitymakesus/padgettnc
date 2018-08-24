@@ -1,0 +1,62 @@
+.btn {
+  margin: 10px 0;
+  background: $color-white;
+  height: 45px;
+  line-height: 43px;
+  font-size: $size-regular;
+  font-family: $font-headers;
+  position: relative;
+  transition: all 0.3s;
+  border: 2px solid white;
+  border-radius: 3px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    opacity: 0;
+    width: 21px;
+    height: 21px;
+    top: 9px;
+    right: 5px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url('../images/icon-arrow.svg');
+    transition: opacity 0.3s;
+  }
+
+  &:hover, &:focus, &:active {
+    color: $color-white;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &-primary {
+    color: $color-green;
+    border-color: $color-green;
+
+    &:hover, &:focus, &:active {
+      background: $color-green;
+    }
+  }
+
+  &-secondary {
+    color: $color-blue;
+    border-color: $color-blue;
+
+    &:hover, &:focus, &:active {
+      background: $color-blue;
+    }
+  }
+
+  &-tertiary {
+    color: $color-green;
+
+    &:hover, &:focus, &:active {
+      border-color: $color-green;
+      background: $color-green;
+    }
+  }
+}
