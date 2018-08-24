@@ -25,7 +25,9 @@ class Security extends Plugin {
         // Run parent class constructor first
         parent::__construct( $plugin );
 
-        if ( $this->settings['general']['on'] == '1' ) {
+        $this->log( 'running Security.php' );
+
+        if ( isset( $this->settings['general']['on'] ) && $this->settings['general']['on'] == '1' ) {
             
             // Run All Policies
             $this->privacy();
@@ -34,10 +36,6 @@ class Security extends Plugin {
             $this->access();
             $this->firewall();
             $this->backups();
-
-        } else {
-
-                $this->messages['general'] = array( 'Security Safe: All security policies are disabled. You can enable them in <a href="admin.php?page=security-safe&tab=general">General Settings</a>.', 2, 0 );
 
         } // $this->settings['general']['on']
 
@@ -53,15 +51,20 @@ class Security extends Plugin {
      */
     private function privacy() {
 
+        $this->log( 'running privacy().' );
+
         $settings = $this->settings['privacy'];
 
         if ( $settings['on'] == "1" ) {
 
-            $this->add_hook_policy( 'PolicyHideWPVersion', 'wp_generator', 'remove', 'action', 'wp_head' );
+            // Hide WordPress Verison
+            $this->add_policy( $settings, 'PolicyHideWPVersion', 'wp_generator' );
 
-        } else {
+            // Hide Script Versions
+            $this->add_policy( $settings, 'PolicyHideScriptVersions', 'hide_script_versions' );
 
-            $this->messages['privacy'] = array( 'Security Safe: All privacy policies are disabled. You can enable them at the top of <a href="admin.php?page=security-safe-privacy&tab=settings">Privacy Settings</a>.', 2, 0 );
+            // Make Website Anonymous
+            $this->add_policy( $settings, 'PolicyAnonymousWebsite', 'http_headers_useragent' );
 
         } // $settings['on']
 
@@ -77,6 +80,8 @@ class Security extends Plugin {
      */
     private function files() {
 
+        $this->log( 'running files().' );
+
         global $wp_version;
 
         $settings = $this->settings['files'];
@@ -85,6 +90,20 @@ class Security extends Plugin {
 
             // Disallow Theme File Editing
             $this->add_constant_policy( $settings, 'PolicyDisallowFileEdit', 'DISALLOW_FILE_EDIT', true );
+
+            // Protect WordPress Version Files
+            $this->add_policy( $settings, 'PolicyWordPressVersionFiles', 'version_files_core' );
+
+            if ( $this->is_pro() ) {
+            
+                // Protect Plugin Version Files
+                //$this->add_policy( $settings, 'PolicyPluginVersionFiles', 'version_files_plugins' );
+
+                // Protect Theme Version Files
+                //$this->add_policy( $settings, 'PolicyThemeVersionFiles', 'version_files_themes' );
+
+            } // is_pro()
+
 
             // Auto Updates: https://codex.wordpress.org/Configuring_Automatic_Background_Updates
             if ( version_compare( $wp_version, '3.7.0') >= 0 && ! defined('AUTOMATIC_UPDATER_DISABLED') ) {
@@ -100,15 +119,7 @@ class Security extends Plugin {
                     // Automatic Minor Core Updates
                     $this->add_filter_bool( $settings, 'PolicyUpdatesCoreMinor', 'allow_minor_auto_core_updates' );
                 
-                } else {
-                        
-                    if ( isset( $_GET['page'] ) && $_GET['page'] == 'security-safe-files' ) {
-
-                        $this->messages['files'] = array( 'WordPress Automatic Core Updates are being controlled by the constant WP_AUTO_UPDATE_CORE possibly in the wp-config.php file. Automatic Core Update features disabled in this plugin.', 2, 0 );
-                        
-                    } // $_GET['page']
-
-                }// WP_AUTO_UPDATE_CORE
+                } 
 
                 // Automatic Plugin Updates
                 $this->add_filter_bool( $settings, 'PolicyUpdatesPlugin', 'auto_update_plugin' );
@@ -116,29 +127,7 @@ class Security extends Plugin {
                 // Automatic Theme Updates
                 $this->add_filter_bool( $settings, 'PolicyUpdatesTheme', 'auto_update_theme' );
 
-            } else {
-
-                if ( defined('AUTOMATIC_UPDATER_DISABLED') ) {
-
-                    if ( isset( $_GET['page'] ) && $_GET['page'] == 'security-safe-files' ) {
-
-                        $this->messages['files'] = array( 'WordPress Automatic Updates are disabled by the constant AUTOMATIC_UPDATER_DISABLED possibly in the wp-config.php file. Automatic Update features are disabled in this plugin.', 2, 0 );
-                    
-                    } // $_GET['page']
-
-                } // AUTOMATIC_UPDATER_DISABLED
-
-                if ( version_compare( $wp_version, '3.7.0') < 0 ) {
-
-                    $this->messages['files'] = array( 'You are using WordPress Version ' . $wp_version . '. The WordPress Automatic Updates feature controls require version 3.7 or greater.', 2, 0 );
-            
-                } // version_compare()
-
             } // version_compare()
-
-        } else {
-
-            $this->messages['files'] = array( 'Security Safe: All file policies are disabled. You can enable them at the top of <a href="admin.php?page=security-safe-files&tab=settings">File Settings</a>.', 2, 0 );
 
         } // $settings['on']
 
@@ -154,17 +143,20 @@ class Security extends Plugin {
      */ 
     private function content() {
 
-        return; //disable functionality
+        $this->log( 'running content().' );
 
         $settings = $this->settings['content'];
 
         if ( $settings['on'] == "1" ) {
 
-            // Security Policies Go Here
+            // Disable Text Highlighting
+            $this->add_policy( $settings, 'PolicyDisableTextHighlight', 'disable_text_highlight' );
 
-        } else {
+            // Disable Right Click
+            $this->add_policy( $settings, 'PolicyDisableRightClick', 'disable_right_click' );
 
-            $this->messages['content'] = array( 'Security Safe: All content policies are disabled. You can enable them at the top of <a href="admin.php?page=security-safe-content&tab=settings">Content Settings</a>.', 2, 0 );
+            // Hide Password Protected Posts
+            $this->add_policy( $settings, 'PolicyHidePasswordProtectedPosts', 'hide_password_protected_posts' );
 
         } // $settings['on']
 
@@ -180,28 +172,31 @@ class Security extends Plugin {
      */
     private function access() {
 
+        $this->log( 'running access().' );
+
         $settings = $this->settings['access'];
         
         if ( $settings['on'] == "1" ) {
 
-            // Generic Login Errors
-            $this->add_policy( $settings, 'PolicyLoginErrors', 'login_errors' );
-
-            // Disable Login Password Reset
-            $this->add_policy( $settings, 'PolicyLoginPasswordReset', 'login_password_reset' );
-
-            // Disable Login Remember Me Checkbox
-            $this->add_policy( $settings, 'PolicyLoginRememberMe', 'login_remember_me' );
-
             // Disable xmlrpc.php
             $this->add_policy( $settings, 'PolicyXMLRPC', 'xml_rpc' );
 
-            // Force Local Login
-            $this->add_policy( $settings, 'PolicyLoginLocal', 'login_local' );
+            // Check only if not logged in
+            if ( ! $this->logged_in ) {
 
-        } else {
+                // Force Local Login
+                $this->add_policy( $settings, 'PolicyLoginLocal', 'login_local' );
+            
+                // Generic Login Errors
+                $this->add_policy( $settings, 'PolicyLoginErrors', 'login_errors' );
 
-            $this->messages['access'] = array( 'Security Safe: All user access policies are disabled. You can enable them at the top of <a href="admin.php?page=security-safe-user-access&tab=settings">User Access Settings</a>.', 2, 0 );
+                // Disable Login Password Reset
+                $this->add_policy( $settings, 'PolicyLoginPasswordReset', 'login_password_reset' );
+
+                // Disable Login Remember Me Checkbox
+                $this->add_policy( $settings, 'PolicyLoginRememberMe', 'login_remember_me' );
+
+            } // ! $this->logged_in
 
         } // $settings['on']
 
@@ -217,6 +212,8 @@ class Security extends Plugin {
      */
     private function firewall() {
 
+        $this->log( 'running firewall().' );
+
         return; // Disable functionality
 
         $settings = $this->settings['firewall'];
@@ -224,10 +221,6 @@ class Security extends Plugin {
         if ( $settings['on'] == "1" ) {
 
             // Security Policies Go Here
-
-        } else {
-
-            $this->messages['firewall'] = array( 'Security Safe: The firewall is disabled. You can enable it at the top of <a href="admin.php?page=security-safe-firewall&tab=settings">Firewall Settings</a>.', 2, 0 );
 
         } // $settings['on']
 
@@ -243,6 +236,8 @@ class Security extends Plugin {
      */
     private function backups() {
 
+        $this->log( 'running backups().' );
+
         return; // Disable functionality
 
         $settings = $this->settings['backups'];
@@ -250,10 +245,6 @@ class Security extends Plugin {
         if ( $settings['on'] == "1" ) {
 
             // Security Policies Go Here
-
-        } else {
-
-            $this->messages['backups'] = array( 'Security Safe: Backups are disabled. You can enable them at the top of <a href="admin.php?page=security-safe-backups&tab=settings">Backup Settings</a>.', 2, 0 );
 
         } // $settings['on']
 
@@ -276,10 +267,12 @@ class Security extends Plugin {
             new $policy();
 
             $this->policies[] = $policy;
+
+            $this->log($policy);
         }
 
         // Memory Cleanup
-        unset( $settings, $policy, $slug );
+        unset( $settings, $policy, $slug, $temp );
 
     } // add_policy()
 
@@ -383,6 +376,8 @@ class Security extends Plugin {
      * @since  0.2.0
      */ 
     static function forbidden(){
+
+        $this->log( 'running forbidden().' );
 
         header('Status: 403 Forbidden');
         header('HTTP/1.1 403 Forbidden');
