@@ -4,18 +4,17 @@ export default {
   },
   finalize() {
     $('.diamond-services').click(function(){
-      $(this).removeClass('not-active');
-      $('.diamond-services').not(this).addClass('not-active');
+      $(this).removeClass('service-not-active');
+      $('.diamond-services').not(this).addClass('service-not-active');
 
-      // if($(this).next('.hidden').hasClass('main-diamond-is-active')) {
-      //   $(this).next('.hidden').removeClass('main-diamond-is-active');
-      // }
-      // $(this).next('.hidden').addClass('main-diamond-is-active');
+      $('.diamond-content-container').removeClass('service-active');
+      $(this).next('.diamond-content-container').addClass('service-active');
     });
 
     $(document).click(function(){
       if($(event.target).closest('.diamond').length==0) {
-        $('.diamond').removeClass('not-active');
+        $('.diamond').removeClass('service-not-active');
+        $('.diamond-content-container').removeClass('service-active');
       }
     })
   },

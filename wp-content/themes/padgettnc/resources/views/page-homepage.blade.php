@@ -33,18 +33,18 @@
     @if(($services))
     <div class="diamond-wrapper">
       @foreach($services as $service)
-        <article class="diamond diamond-services default">
+        <article class="diamond diamond-services">
           <div class="content">
             <h3>{{ $service['title'] }}</h3>
             <img class="hover-icon" src="{{ $value['icon']}} "/>
           </div>
         </article>
 
-        <div class="diamond diamond-content-container diamond-content">
+        <div class="diamond diamond-content-container">
           <div class="content">
             <h3>{{ $service['title'] }}</h3>
             <p>{{ $service['text'] }}</p>
-            <a href="{{ $service['cta_link'] }}">Learn More</a>
+            <a class="btn btn-tertiary" href="{{ $service['cta_link'] }}">Learn More</a>
           </div>
         </div>
       @endforeach
