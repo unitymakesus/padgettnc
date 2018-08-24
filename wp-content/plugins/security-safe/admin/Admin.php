@@ -21,8 +21,14 @@ class Admin extends Security {
         // Run parent class constructor first
         parent::__construct( $plugin );
 
+        $this->log( 'running Admin.php' );
+
+        $this->check_settings();
+
+        $this->policy_notices();
+
         // Display Admin Notices
-        add_action( 'admin_notices', array( $this, 'display_messages' ) );
+        add_action( 'admin_notices', array( $this, 'display_notices' ) );
 
         // Load CSS / JS
         add_action( 'admin_init', array( $this, 'scripts' ) );
@@ -84,7 +90,7 @@ class Admin extends Security {
      */
     public function admin_body_class( $classes ) {
 
-        $classes .= $this->plugin['slug'];
+        $classes .= ' ' . $this->plugin['slug'];
 
         return $classes;
 
@@ -132,7 +138,6 @@ class Admin extends Security {
         // All Admin Pages
         $pages = array();
         $pages = $this->get_category_pages();
-        //$pages[] = 'General Settings';
 
         return $pages;
 
@@ -148,17 +153,23 @@ class Admin extends Security {
 
         // All Category Pages
         $pages = array();
+
+        // Return Plugin Landing Page
+        if ( $disabled ) {
+            $pages[] = 'Plugin';
+        }
+
         $pages[] = 'Privacy';
         $pages[] = 'Files';
         $pages[] = 'User Access';
+        $pages[] = 'Content';
 
         // Return Disabled Menus Also
         // Disabled values are arrays for each of checking
         if ( $disabled ) {
 
-            $pages[] = array( 'Content' );
-            $pages[] = array( 'Firewall' );
-            $pages[] = array( 'Backups' );
+            //$pages[] = array( 'Firewall' );
+            //$pages[] = array( 'Backups' );
 
         } // $disabled
 
@@ -359,26 +370,45 @@ class Admin extends Security {
                 
                 <p class="desc"><?php printf( __( '%s', 'security-safe' ), $page->description ); ?></p>
             
-                <a href="<?php echo $plugin['url_more_info']; ?>" target="_blank" class="ss-logo"><img src="<?php echo $plugin['url']; ?>/img/logo.svg" alt="<?php echo $plugin['name']; ?>"><br />
-                <span class="version">Version <?php echo $plugin['version']; ?></span></a>
+                <a href="<?php echo $plugin['url_more_info']; ?>" target="_blank" class="ss-logo"><img src="<?php echo $plugin['url']; ?>/img/logo.svg" alt="<?php echo $plugin['name']; ?>"><br /><span class="version">Version <?php echo $plugin['version']; ?></span><?php if ( $this->is_pro() ) { ?><span class="version pro">Pro Version <?php echo $plugin['version_pro']; ?></span><?php } ?></a>
 
             </div><!-- .intro -->
 
-            <?php $this->display_heading_menu(); ?>
+            <?php 
+
+            $this->display_heading_menu(); 
+
+            $page->display_tabs(); 
+
+            // Build action URL
+            $action_url = 'admin.php?page=' . $page->slug;
+            $action_url .= ( isset( $_GET['tab'] ) ) ? '&tab=' . sanitize_text_field( $_GET['tab'] ) : '';
             
-            <?php $page->display_tabs(); ?>
+            ?>
 
-            <form method="post" action="">
-
-                <?php wp_nonce_field( 'security-safe-settings' ); ?>
+            <form method="post" action="<?php echo admin_url( $action_url ); ?>">
     
                 <div class="all-tab-content">
 
                     <?php $page->display_tabs_content(); ?>
+                    
+                    <?php if ( ! isset( $_GET['tab'] ) || ( isset( $_GET['tab'] ) && $_GET['tab'] == 'settings' ) ) { ?>
+                        <div id="sidebar" class="sidebar">
+
+                            <div class="rate-us widget">
+                                <h5>Like This Plugin?</h5>
+                                <p>Share your positive experience!</p>
+                                <p><a href="https://wordpress.org/plugins/security-safe/#reviews" target="_blank" class="rate-stars"><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span><span class="icon-star"></span></a></p>
+                            </div>
+                            <?php if ( ! $this->is_pro() ) { ?>
+                            <div class="security-safe-pro widget">
+                                <a href="<?php echo $plugin['url_more_info_pro']; ?>" target="_blank"><img src="<?php echo $plugin['url']; ?>img/security-safe-pro.png?ver=<?php echo $plugin['version']; ?>" alt="Security Safe Pro is Coming Soon!" /></a>
+                            </div>
+                            <?php } ?>
+                        </div>
+                    <?php } ?>
 
                     <div id="tab-content-footer" class="footer tab-content"></div>
-
-                    <div id="sidebar" class="sidebar"></div>
 
                 </div><!-- .all-tab-content -->
 
@@ -388,7 +418,7 @@ class Admin extends Security {
 
                 <hr />
 
-                <p>If you like <?php echo $plugin['name']; ?>, please <a href="https://wordpress.org/support/plugin/security-safe/reviews/" target="_blank">post a review</a>.</p>
+                <p>If you like <?php echo $plugin['name']; ?>, please <a href="https://wordpress.org/support/plugin/security-safe/reviews/#new-post" target="_blank">post a review</a>.</p>
             
                 <p>Need help? Visit the <a href="https://wordpress.org/support/plugin/security-safe/" target="_blank">support forum</a>.</p>
             
@@ -425,11 +455,32 @@ class Admin extends Security {
             } // is_array()
 
             $class = strtolower( str_replace( ' ', '-', $m ) );
-            $href = ( $disabled ) ? '' : 'href="admin.php?page=' . $this->plugin['slug'] . '-' . $class . '"';
+
+            if ( $m == 'Plugin' ) {
+
+                $href = 'href="admin.php?page=' . $this->plugin['slug'] . '"';
+
+            } else {
+
+                $href = ( $disabled ) ? '' : 'href="admin.php?page=' . $this->plugin['slug'] . '-' . $class . '"';
+
+            }
             
             // Highlight Active Menu
-            $active = ( strpos( $_GET['page'], $class ) !== false ) ? ' active' : '';
+            if ( $_GET['page'] == 'security-safe' && $m == 'Plugin' ) {
+
+                $active = ' active';
+
+            } else {
+
+                $active = ( strpos( $_GET['page'], $class ) !== false ) ? ' active' : '';
+
+            }
+
             $class .= $active . $disabled;
+
+            // Convert All Menus to A Single Line
+            $m = ( $m == 'User Access' ) ? 'Access' : $m;
 
             $html .= '<li><a ' . $href . 'class="icon-' . $class . '"><span>' . $m . '</span></a></li>';
 
@@ -448,9 +499,9 @@ class Admin extends Security {
      * Displays all messages
      * @since  0.2.0
      */
-    public function display_messages() {
+    public function display_notices() {
 
-        $this->log( 'display_messages()' );
+        $this->log( 'display_notices()' );
 
         if ( is_array( $this->messages ) ) {
             
@@ -469,12 +520,15 @@ class Admin extends Security {
                 
             } // foreach ()
 
+            // Reset Messages
+            $this->messages = array();
+
             // Memory Cleanup
             unset( $m, $message, $status, $dismiss );
 
         } // is_array()
 
-    } // display_messages()
+    } // display_notices()
 
 
     /**
@@ -508,6 +562,162 @@ class Admin extends Security {
         unset( $message, $status, $dismiss, $class );
 
     } //admin_notice()
+
+    /**
+     * Checks settings and determines whether they need to be reset to default
+     * @since  0.1.0
+     */
+    function check_settings() {
+
+        $this->log( 'running check_settings()' );
+
+        if ( isset( $_POST ) && ! empty( $_POST ) ) {
+
+            $this->log( 'form was submitted' );
+
+            if ( isset( $_GET['page'] ) && strpos( $_GET['page'], $this->plugin['slug'] ) !== false ) { 
+
+                $this->log( 'we are on a Security Safe page' );
+
+                if ( ! isset( $_GET['tab'] ) || $_GET['tab'] == 'settings' ) {
+
+                    $this->log( 'we are on a settings tab' );
+
+                    // Remove Reset Variable
+                    if ( isset( $_GET['reset'] ) ) { 
+                        
+                        unset( $_GET['reset'] );
+
+                    }
+
+                    // Create Page Slug
+                    $page_slug = filter_var( $_GET['page'], FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH );
+                    $page_slug = str_replace( array( 'security-safe-', 'security-safe' ), '', $page_slug );
+                    
+                    // Compensation For Oddball Scenarios
+                    $page_slug = ( $page_slug == '' ) ? 'general' : $page_slug;
+                    $page_slug = ( $page_slug == 'user-access' ) ? 'access' : $page_slug;
+
+                    $this->post_settings( $page_slug );
+
+                    // Memory Cleanup
+                    unset( $page_slug );
+
+                } // isset( $_GET['tab'] )
+
+            } // isset( $_GET['page'] )
+
+        } else if ( 
+
+                    isset( $_GET['page'] ) && 
+                    $_GET['page'] == $this->plugin['slug'] &&
+
+                    isset( $_GET['reset'] ) &&
+                    $_GET['reset'] == 1
+
+                ) {
+
+
+            $this->log( 'Reset requested.' );
+
+            // Reset On Plugin Settings Only
+            $this->reset_settings();
+
+        } // isset( $_POST )
+
+
+    } //check_settings()
+
+    /**
+     * Sets notices for policies that are disabled as a group.
+     * @since  1.1.10
+     */
+    protected function policy_notices(){
+
+        // All Plugin Policies
+        if ( ! isset( $this->settings['general']['on'] ) || $this->settings['general']['on'] != "1" ) {
+
+            $message = 'Security Safe: All security policies are disabled.';
+
+            $message .= ( isset( $_GET['page'] ) && $_GET['page'] == 'security-safe' ) ? '' : ' You can enable them in <a href="admin.php?page=security-safe&tab=settings#settings">Plugin Settings</a>. If you are experiencing an issue, <a href="admin.php?page=security-safe&reset=1">reset your settings.</a>';
+
+            $this->messages['general'] = array( $message, 2, 0 );
+
+        } else {
+
+            // Privacy Policies
+            if ( ! isset( $this->settings['privacy']['on'] ) || $this->settings['privacy']['on'] != "1" ) {
+
+                $message = 'Security Safe: All privacy policies are disabled.';
+
+                $message .= ( isset( $_GET['page'] ) && $_GET['page'] == 'security-safe-privacy' ) ? '' : ' You can enable them at the top of <a href="admin.php?page=security-safe-privacy&tab=settings#settings">Privacy Settings</a>.';
+
+                $this->messages['privacy'] = array( $message, 2, 0 );
+
+            } // privacy
+
+            // Files Policies
+            if ( ! isset( $this->settings['files']['on'] ) || $this->settings['files']['on'] != "1" ) {
+
+                $message = 'Security Safe: All file policies are disabled.';
+
+                $message .= ( isset( $_GET['page'] ) && $_GET['page'] == 'security-safe-files' ) ? '' : ' You can enable them at the top of <a href="admin.php?page=security-safe-files&tab=settings#settings">File Settings</a>.';
+
+                $this->messages['files'] = array( $message, 2, 0 );
+
+            } // files
+
+            // Access Policies
+            if ( ! isset( $this->settings['access']['on'] ) || $this->settings['access']['on'] != "1" ) {
+
+                $message = 'Security Safe: All user access policies are disabled.';
+
+                $message .= ( isset( $_GET['page'] ) && $_GET['page'] == 'security-safe-user-access' ) ? '' : ' You can enable them at the top of <a href="admin.php?page=security-safe-user-access&tab=settings#settings">User Access Settings</a>.';
+
+                $this->messages['access'] = array( $message, 2, 0 );
+
+            } // access
+
+            // Content Policies
+            if ( ! isset( $this->settings['content']['on'] ) || $this->settings['content']['on'] != "1" ) {
+
+                $message = 'Security Safe: All content policies are disabled.';
+
+                $message .= ( isset( $_GET['page'] ) && $_GET['page'] == 'security-safe-content' ) ? '' : ' You can enable them at the top of <a href="admin.php?page=security-safe-content&tab=settings#settings">Content Settings</a>.';
+
+                $this->messages['content'] = array( $message, 2, 0 );
+
+            } // content
+
+            /* // These Features Do Not Exist Yet =========
+
+                // Firewall Policies
+                if ( ! isset( $this->settings['firewall']['on'] ) || $this->settings['firewall']['on'] != "1" ) {
+
+                    $message = 'Security Safe: The firewall is disabled.';
+
+                    $message .= ( isset( $_GET['page'] ) && $_GET['page'] == 'security-safe-firewall' ) ? '' : ' You can enable it at the top of <a href="admin.php?page=security-safe-firewall&tab=settings#settings">Firewall Settings</a>.';
+
+                    $this->messages['firewall'] = array( $message, 2, 0 );
+
+                } // firewall
+
+                // Backups Policies
+                if ( ! isset( $this->settings['backups']['on'] ) || $this->settings['backups']['on'] != "1" ) {
+
+                    $message = 'Security Safe: Backups are disabled.';
+
+                    $message .= ( isset( $_GET['page'] ) && $_GET['page'] == 'security-safe-backups' ) ? '' : ' You can enable them at the top of <a href="admin.php?page=security-safe-backups&tab=settings#settings">Backup Settings</a>.';
+
+                    $this->messages['backups'] = array( $message, 2, 0 );
+
+                } // backups
+        
+        ============================================= */
+
+        } // endif
+
+    } // cleanup_notices()
 
 
 } // Admin()

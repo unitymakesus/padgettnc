@@ -7,7 +7,7 @@ if ( ! defined( 'WPINC' ) ) { die; }
 
 /**
  * @package SecuritySafe
- * @version 1.0.4
+ * @version 1.1.13
  */
 
 /*
@@ -16,7 +16,7 @@ if ( ! defined( 'WPINC' ) ) { die; }
  * Description: Security Safe - Security, Hardening, Auditing & Privacy
  * Author: Sovereign Stack, LLC
  * Author URI: https://sovstack.com
- * Version: 1.0.4
+ * Version: 1.1.13
  * Text Domain: security-safe
  * Domain Path:  /languages
  * License: GPLv3 or later
@@ -38,35 +38,37 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-$plugin = array(
-    'name'          => 'Security Safe',
-    'version'       => '1.0.4',
-    'slug'          => 'security-safe',
-    'options'       => 'securitysafe_options',
-    'file'          => __FILE__,
-    'dir'           => __DIR__,
-    'dir_admin'     => __DIR__ . '/admin',
-    'dir_common'    => __DIR__ . '/common',
-    'dir_lang'      => __DIR__ . '/languages',
-    'url'           => plugin_dir_url( __FILE__ ),
-    'url_author'    => 'https://sovstack.com/',
-    'url_more_info' => 'https://sovstack.com/security-safe/',
-    );
+$SecuritySafe = array();
+
+// Base Plugin
+$SecuritySafe['name'] = 'Security Safe';
+$SecuritySafe['version'] = '1.1.13';
+$SecuritySafe['slug'] = 'security-safe';
+$SecuritySafe['options'] = 'securitysafe_options';
+$SecuritySafe['file'] = __FILE__;
+$SecuritySafe['dir'] = __DIR__;
+$SecuritySafe['dir_admin'] = __DIR__ . '/admin';
+$SecuritySafe['dir_common'] = __DIR__ . '/common';
+$SecuritySafe['dir_lang'] = __DIR__ . '/languages';
+$SecuritySafe['url'] = plugin_dir_url( __FILE__ );
+$SecuritySafe['url_author'] = 'https://sovstack.com/';
+$SecuritySafe['url_more_info'] = 'https://sovstack.com/security-safe/';
+
+// Pro Addon
+$SecuritySafe['version_pro'] = false;
+$SecuritySafe['slug_pro'] = $SecuritySafe['slug'] . '-pro';
+$SecuritySafe['file_pro'] = $SecuritySafe['slug_pro'] . '.php';
+$SecuritySafe['dir_pro'] = dirname ( __DIR__ ) . '/' . $SecuritySafe['slug_pro'];
+$SecuritySafe['dir_admin_pro'] = $SecuritySafe['dir_pro'] . '/admin';
+$SecuritySafe['dir_common_pro'] = $SecuritySafe['dir_pro'] . '/common';
+$SecuritySafe['dir_lang_pro'] = $SecuritySafe['dir_pro'] . '/languages';
+$SecuritySafe['url_more_info_pro'] ='https://sovstack.com/security-safe/pro/';
 
 // Autoload
 require_once( __DIR__ . '/vendor/autoload.php' );
 
-// Initialize Plugin
-$init = __NAMESPACE__ . '\\';
-$init .= ( is_admin() ) ? 'Admin' : 'Security';
-$SecuritySafe = new $init( $plugin );
+// Init Plugin
+add_action( 'init', __NAMESPACE__ . '\\Plugin::init' );
 
-// Memory Cleanup
-unset( $init, $plugin );
-
-// Cleanup Plugin Memory
-if ( isset( $SecuritySafe ) ) {
-
-    add_action( 'shutdown', __NAMESPACE__ . '\\Plugin::shutdown' );
-
-} // isset()
+// Cleanup Plugin
+add_action( 'shutdown', __NAMESPACE__ . '\\Plugin::shutdown' );

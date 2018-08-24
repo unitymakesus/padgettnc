@@ -200,7 +200,10 @@ class AdminPage {
     
     protected function form_section( $title, $desc ) {
 
-        $html = '<h3>' . $title . '</h3>';
+        // Create ID to allow links to specific areas of admin
+        $id = str_replace( ' ', '-', trim( strtolower( $title ) ) );
+        
+        $html = '<h3 id="' . $id . '">' . $title . '</h3>';
         $html .= '<p>' . $desc . '</p>';
 
         // Memory Cleanup
@@ -219,9 +222,9 @@ class AdminPage {
      * @param string $short_desc The text that is displayed to the right on the checkbox.
      * @param string $long_desc The description text displayed below the title.
      */
-    protected function form_checkbox( $page_options, $name, $slug, $short_desc, $long_desc ) {
+    protected function form_checkbox( $page_options, $name, $slug, $short_desc, $long_desc, $classes = '', $disabled = false ) {
 
-        $html = '<tr class="checkbox">';
+        $html = '<tr class="form-checkbox '. $classes .'">';
 
         if ( is_array( $page_options ) && $slug && $short_desc ) {
             
@@ -229,8 +232,9 @@ class AdminPage {
             $html .= '<td>';
 
             $checked = ( isset( $page_options[ $slug ] ) && $page_options[ $slug ] == '1' ) ? ' CHECKED' : '';
+            $disabled = ( $disabled ) ? ' DISABLED' : '';
         
-            $html .= '<label><input name="' . $slug . '" type="checkbox" value="1"' . $checked . '/>' . $short_desc . '</label>';
+            $html .= '<label><input name="' . $slug . '" type="checkbox" value="1"' . $checked . $disabled . '/>' . $short_desc . '</label>';
             
             if ( $long_desc ) {
 
@@ -262,16 +266,58 @@ class AdminPage {
     } //form_checkbox()
 
 
-    protected function form_text() {
+    protected function form_text( $message, $class = '', $classes = '' ) {
 
-        // Placeholder for now
+        $html = '<tr class="form-text '. $classes .'">';
+
+        $html .= '<td colspan="2"><p class="' . $class . '">' . $message . '</p></td>';
+
+        $html .= '</tr>';
+
+        return $html;
         
     } // form_text();
 
 
-    protected function form_select( $page_options, $name, $slug, $options, $long_desc ) {
+    protected function form_input( $page_options, $name, $slug, $placeholder, $long_desc, $styles = '', $classes = '', $required = false ) {
+    
+        $html = '<tr class="form-input '. $classes .'">';
 
-        $html = '<tr class="select">';
+        if ( is_array( $page_options ) && $slug ) {
+
+            $value = ( isset( $page_options[ $slug ] ) ) ? $page_options[ $slug ] : '';
+
+            $html .= $this->row_label( $name );
+            
+            $html .= '<td><input type="text" name="' . $slug . '" placeholder="' . $placeholder . '" value="' . $value . '" style="' . $styles . '">';
+
+            if ( $long_desc ) {
+
+                $html .= '<p class="desc">' . $long_desc . '</p>';
+
+            } // $long_desc
+
+            $html .= '</td>';
+
+        } else {
+
+            $html .= '<td>There is an issue.</td>';
+
+        } // is_array( $options )
+
+        $html .= '</tr>';
+
+        // Memory Cleanup
+        unset( $page_options, $name, $slug, $placeholder, $long_desc, $required, $value );
+
+        return $html;
+
+    } // form_input()
+
+
+    protected function form_select( $page_options, $name, $slug, $options, $long_desc, $classes = '' ) {
+
+        $html = '<tr class="form-select '. $classes .'">';
 
         if ( is_array( $page_options ) && $slug && $options ) {
             
@@ -310,7 +356,7 @@ class AdminPage {
 
         } else {
 
-            $html .= 'There is an issue.';
+            $html .= '<td colspan="2">There is an issue.</td>';
 
         } // is_array( $options ) && $slug ...
 
@@ -345,9 +391,9 @@ class AdminPage {
      * Creates Table Row For A Button
      * @since  0.3.0
      */ 
-    protected function form_button( $text, $type, $value, $long_desc = false ) {
+    protected function form_button( $text, $type, $value, $long_desc = false, $classes = '' ) {
 
-        $html = '<tr class="select">';
+        $html = '<tr class="form-button '. $classes .'">';
             
         $html .= $this->row_label( $text );
             
@@ -418,7 +464,7 @@ class AdminPage {
 
         if ( ! empty( $this->messages ) ) {
 
-            $html = '<h3>Changes Log</h3>
+            $html = '<h3>Process Log</h3>
             <p><textarea style="width: 100%; height: 120px;">';
 
             foreach ( $this->messages as $m ) {
@@ -441,5 +487,17 @@ class AdminPage {
 
     } // display_messages()
 
+    /**
+     * Wrapper for the main object is_pro() function
+     * @return boolean
+     */
+    protected function is_pro() {
+
+        global $SecuritySafe;
+
+        return $SecuritySafe->is_pro();
+
+    } // is_pro()
+    
 
 } // Admin()
