@@ -3,14 +3,19 @@ export default {
     // JavaScript to be fired on the home page
   },
   finalize() {
-    $('.visible').click(function(){
-      $(this).addClass('diamond-not-active');
-      $('.diamond.visible').not(this).addClass('diamond-not-active');
+    $('.diamond-services').click(function(){
+      $(this).removeClass('service-not-active');
+      $('.diamond-services').not(this).addClass('service-not-active');
 
-      // if($(this).next('.hidden').hasClass('main-diamond-is-active')) {
-      //   $(this).next('.hidden').removeClass('main-diamond-is-active');
-      // }
-      // $(this).next('.hidden').addClass('main-diamond-is-active');
+      $('.diamond-content-container').removeClass('service-active');
+      $(this).next('.diamond-content-container').addClass('service-active');
     });
+
+    $(document).click(function(){
+      if($(event.target).closest('.diamond').length==0) {
+        $('.diamond').removeClass('service-not-active');
+        $('.diamond-content-container').removeClass('service-active');
+      }
+    })
   },
 };

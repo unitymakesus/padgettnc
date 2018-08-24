@@ -25,7 +25,9 @@
   }
 
   .diamond-content-container {
+    color: $color-white;
     background: $color-blue;
+    z-index: 0;
     height: 300px;
     width: 300px;
     text-align: center;
@@ -36,6 +38,12 @@
   .diamond-services {
     background: $color-green;
     border: 1px solid $color-white;
+    color: $color-white;
+
+    &:hover {
+      background: darken($color-green, 5%);
+      cursor: pointer;
+    }
 
     .hover-icon {
       display: none;
@@ -71,8 +79,14 @@
   }
 }
 
-.not-active {
+.service-not-active {
   background: $color-white !important;
   color: $color-green !important;
   border-color: $color-green !important;
+}
+
+.service-active {
+  background: $color-green !important;
+  border-color: $color-green !important;
+  z-index: 10 !important;
 }
