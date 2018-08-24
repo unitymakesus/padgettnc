@@ -22,7 +22,7 @@
 .menu-main-menu-container {
   background: $color-white;
 
-  .nav {
+  .navbar-menu {
     display: flex;
     justify-content: center;
 
@@ -36,7 +36,7 @@
         padding: 0 35px;
         position: relative;
 
-        &:hover {
+        &:hover, &:focus, &:active {
           background: transparent;
           color: $color-green;
           border: none;
@@ -71,7 +71,7 @@
         background-image: url('../images/icon-stars.svg');
       }
 
-      &:hover {
+      &:hover, &:focus, &:active {
         &.icon-book a::before {
           background-image: url('../images/icon-book-hover.svg');
         }
@@ -96,7 +96,7 @@
       a {
         cursor: default;
 
-        &:hover {
+        &:hover, &:focus, &:active {
           border: none;
         }
       }
@@ -124,6 +124,10 @@
             text-transform: uppercase;
             font-weight: 300;
             cursor: pointer;
+
+            &:hover, &:focus, &:active {
+              background-color: rgba(0, 0, 0, 0.1);
+            }
           }
         }
       }

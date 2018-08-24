@@ -29,7 +29,7 @@ p {
 a {
   color: $color-green;
 
-  &:hover {
+  &:hover, &:focus, &:active {
     border-bottom: 3px solid $color-green;
   }
 }
