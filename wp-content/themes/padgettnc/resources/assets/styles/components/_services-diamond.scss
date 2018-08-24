@@ -26,6 +26,7 @@
 
   .diamond-content-container {
     background: $color-blue;
+    color: $color-white;
     height: 300px;
     width: 300px;
     text-align: center;
@@ -34,9 +35,6 @@
   }
 
   .diamond-services {
-    background: $color-green;
-    border: 1px solid $color-white;
-
     .hover-icon {
       display: none;
     }
@@ -68,6 +66,17 @@
       top: 283px;
       left: 426px;
     }
+  }
+}
+
+.default {
+  background: $color-green;
+  border: 1px solid $color-white;
+  color: $color-white;
+
+  &:hover {
+    background: darken($color-green, 5%);
+    cursor: pointer;
   }
 }
 
