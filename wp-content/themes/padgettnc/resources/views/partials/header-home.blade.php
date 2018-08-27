@@ -1,4 +1,9 @@
-<header id="site-header">
+<header id="site-header" class="header-homepage">
+  <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Video-Screenshot.png">
+    {{-- <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.webm" type="video/webm">
+    <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.mp4" type="video/mp4"> --}}
+  </video>
+
   <div class="nav-top row">
     <div class="col s3">
       <a class="logo" href="{{ home_url('/') }}" rel="home">
@@ -25,6 +30,16 @@
         <a href="#" class="btn btn-tertiary">Client Portal</a>
       </div>
     </div>
+  </div>
+
+  <div class="hero">
+    <h1>{{$hero['header']}}</h1>
+    <h3>{{$hero['subheader']}}</h3>
+  </div>
+
+  <div class="scroll-arrow">
+    <p>&#x21fd;</p>
+    <p>scroll to get started</p>
   </div>
 </header>
 

@@ -3,18 +3,19 @@ export default {
     // JavaScript to be fired on the home page
   },
   finalize() {
-    $('.diamond-services').click(function(){
+    $('.diamond-service').click(function(){
+      let side = $(this).attr('data-side');
       $(this).removeClass('service-not-active');
-      $('.diamond-services').not(this).addClass('service-not-active');
-
-      $('.diamond-content-container').removeClass('service-active');
-      $(this).next('.diamond-content-container').addClass('service-active');
+      $('.diamond-service').not(this).addClass('service-not-active');
+      $('.diamond-cube').attr('data-show', side);
+      $('.diamond-cube-default').removeClass('show');
     });
 
     $(document).click(function(){
       if($(event.target).closest('.diamond').length==0) {
-        $('.diamond').removeClass('service-not-active');
-        $('.diamond-content-container').removeClass('service-active');
+        $('.diamond-service').removeClass('service-not-active');
+        $('.diamond-cube').removeAttr('data-show');
+        $('.diamond-cube-default').addClass('show');
       }
     })
   },

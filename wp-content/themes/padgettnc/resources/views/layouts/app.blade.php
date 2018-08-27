@@ -3,11 +3,12 @@
   @include('partials.head')
   <body @php body_class() @endphp>
     @php do_action('get_header') @endphp
-    @include('partials.header')
 
     @if(is_front_page())
+      @include('partials.header-home')
       <div class="wrap" role="document">
     @else
+      @include('partials.header')
       <div class="wrap container" role="document">
     @endif
 
