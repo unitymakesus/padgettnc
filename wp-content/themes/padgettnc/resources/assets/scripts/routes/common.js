@@ -14,6 +14,7 @@ export default {
 
   // Show mobile nav
   function showMobileNav() {
+    $('.navbar-menu').css('display', 'block');
     $('body').addClass('mobilenav-active');
     $('#menu-trigger + label i').attr('aria-label', 'Hide navigation menu');
 
@@ -26,6 +27,7 @@ export default {
 
   // Hide mobile nav
   function hideMobileNav() {
+    $('.navbar-menu').css('display', 'none');
     $('body').removeClass('mobilenav-active');
     $('#menu-trigger + label i').attr('aria-label', 'Show navigation menu');
 
@@ -64,5 +66,7 @@ export default {
       }
     });
   });
+
+  $('.inline').modaal();
   },
 };

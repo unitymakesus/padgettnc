@@ -1,6 +1,7 @@
 // import external dependencies
 import 'jquery';
 import 'materialize-css';
+import 'modaal';
 
 // Import everything from autoload
 import "./autoload/**/*"

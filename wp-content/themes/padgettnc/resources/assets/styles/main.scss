@@ -1,3 +1,4 @@
+@import "~modaal/dist/css/modaal.min";
 @import "~materialize-css/sass/materialize";
 @import "common/remcalc";
 @import "common/variables";
@@ -11,6 +12,7 @@
 @import "components/google-reviews";
 @import "components/wp-classes";
 @import "components/unity";
+@import "components/team";
 @import "layouts/header";
 @import "layouts/sidebar";
 @import "layouts/footer";

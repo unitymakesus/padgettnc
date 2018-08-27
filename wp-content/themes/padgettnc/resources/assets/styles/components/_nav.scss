@@ -1,4 +1,8 @@
 /** Top Navigation Bar */
+nav {
+  background: inherit;
+}
+
 .topnav-wrapper {
   width: 80%;
 
@@ -170,7 +174,7 @@
     }
 
     @media #{$medium-and-down} {
-      flex-flow: nowrap column;
+      display: none;
       margin: 0;
       max-height: 0;
 
