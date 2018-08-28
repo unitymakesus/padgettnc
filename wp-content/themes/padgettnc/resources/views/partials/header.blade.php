@@ -1,6 +1,6 @@
-<header id="site-header">
+<header id="main-site-header" style="background-image:url('{!! get_the_post_thumbnail_url($id, 'large') !!}')">
   <div class="nav-top row">
-    <div class="col s3">
+    <div class="col s6 l3">
       <a class="logo" href="{{ home_url('/') }}" rel="home">
         @if (has_custom_logo())
           @php
@@ -17,7 +17,7 @@
         @endif
       </a>
     </div>
-    <div class="col s3 offset-s6">
+    <div class="col s6 l3 offset-l6">
       <div class="topnav-wrapper">
         @if (has_nav_menu('top_navigation'))
           {!! wp_nav_menu(['theme_location' => 'top_navigation']) !!}

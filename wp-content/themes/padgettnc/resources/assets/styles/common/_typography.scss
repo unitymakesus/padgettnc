@@ -1,25 +1,27 @@
 h1 {
   font-family: $font-headers;
   font-size: $size-extralarge;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 h2 {
   font-family: $font-headers;
   font-size: $size-large;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 h3 {
   font-family: $font-headers;
   font-size: $size-medium;
   font-weight: 500;
+  margin-top: $spacer;
 }
 
 p {
   font-family: $font-body;
   font-size: $size-regular;
   font-weight: 300;
+  line-height: 1.8em;
 
   .accent {
     font-size: $size-regularmedium;
@@ -32,4 +34,8 @@ a {
   &:hover, &:focus, &:active {
     border-bottom: 3px solid $color-green;
   }
+}
+
+ul {
+  list-style-type: lower-roman;
 }
