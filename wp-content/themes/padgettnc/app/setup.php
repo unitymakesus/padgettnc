@@ -76,7 +76,7 @@ add_action('after_setup_theme', function () {
      * Use main stylesheet for visual editor
      * @see resources/assets/styles/layouts/_tinymce.scss
      */
-    add_editor_style(asset_path('styles/main.css'));
+    // add_editor_style(asset_path('styles/main.css'));
 
     /**
      * Enqueue editor styles for Gutenberg
@@ -84,7 +84,7 @@ add_action('after_setup_theme', function () {
     function padgett_editor_styles() {
       wp_enqueue_style( 'padgett-gutenberg-style', asset_path('styles/main.css') );
     }
-    add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\padgett_editor_styles' );
+    // add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\padgett_editor_styles' );
 }, 20);
 
 /**
