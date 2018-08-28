@@ -8,7 +8,7 @@
       @include('partials.header-home')
       <div class="wrap" role="document">
     @else
-      @include('partials.page-header')
+      @include('partials.header')
       <div class="wrap" role="document">
     @endif
 

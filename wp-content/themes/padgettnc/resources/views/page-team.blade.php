@@ -17,7 +17,8 @@ Template Name: Our Team
     ?>
 
     @if ($staff->have_posts())
-    <div class="row">
+    <div class="container">
+      <div class="row">
       @while ($staff->have_posts())
         @php $staff->the_post() @endphp
           <div class="col m4 staff-member">
@@ -38,6 +39,7 @@ Template Name: Our Team
             </div>
           </div>
       @endwhile
+    </div>
     @endif
     </div>
     @php wp_reset_postdata() @endphp
