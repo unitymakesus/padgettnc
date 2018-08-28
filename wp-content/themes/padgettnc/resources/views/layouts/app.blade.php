@@ -9,7 +9,7 @@
       <div class="wrap" role="document">
     @else
       @include('partials.page-header')
-      <div class="wrap container" role="document">
+      <div class="wrap" role="document">
     @endif
 
       <div class="content">

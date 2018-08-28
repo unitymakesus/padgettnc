@@ -4,6 +4,10 @@
       <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.webm" type="video/webm">
       <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.mp4" type="video/mp4">
     </video>
+
+@elseif(is_category())
+  <header id="main-site-header" style="background-image:url(' <?php $category = get_the_category(); echo get_wp_term_image ($category[0]->cat_ID)?> ')">
+
 @else
   <header id="main-site-header" style="background-image:url('{!! get_the_post_thumbnail_url($id, 'full') !!}')">
 @endif

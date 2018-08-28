@@ -58,7 +58,7 @@
     @endif
   </div>
 
-  <?php $the_query = new WP_Query( array( 'category_name' => 'client-spotlight', 'posts_per_page', 1 ) ); ?>
+  <?php $the_query = new WP_Query( array( 'category_name' => 'client-spotlight', 'posts_per_page' => 1 ) ); ?>
     <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
       <div class="client-spotlight">
         <div class="client-spotlight-card container">
@@ -77,7 +77,7 @@
       </div>
       <?php endwhile; wp_reset_postdata(); ?>
 
-      <?php $the_query = new WP_Query( array( 'post_type' => 'reviews', 'posts_per_page', 2 ) ); ?>
+      <?php $the_query = new WP_Query( array( 'post_type' => 'reviews', 'posts_per_page' => 3 ) ); ?>
       <div class="google-review container">
         <div class="row">
           <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>

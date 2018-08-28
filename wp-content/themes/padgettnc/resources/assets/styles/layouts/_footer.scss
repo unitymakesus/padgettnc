@@ -4,6 +4,7 @@ footer {
   .footer-logos {
     display: flex;
     justify-content: space-between;
+    background: $color-white;
 
     .widget_media_image {
       flex-grow: 1;
