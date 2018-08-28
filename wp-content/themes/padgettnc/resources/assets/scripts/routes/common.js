@@ -67,6 +67,7 @@ export default {
     });
   });
 
+  // Initialzie Modaal
   $('.inline').modaal();
   },
 };

@@ -60,6 +60,19 @@
     }
   }
 
+  .google-review {
+    margin: 6em auto;
+    text-align: center;
+
+    img {
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
   .cta {
     height: 325px;
     background-size: cover;

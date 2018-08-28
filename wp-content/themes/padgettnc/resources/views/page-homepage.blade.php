@@ -77,15 +77,26 @@
       </div>
       <?php endwhile; wp_reset_postdata(); ?>
 
-  <!-- <div class="reviews container">
-    @php dynamic_sidebar('google-reviews') @endphp
-    <a class="btn btn-primary" target="_blank" href="">See all Google Reviews</a>
-  </div> -->
+      <?php $the_query = new WP_Query( array( 'post_type' => 'reviews', 'posts_per_page', 2 ) ); ?>
+      <div class="google-review container">
+        <div class="row">
+          <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+            <div class="col m4">
+              <img src="<?php echo get_field('profile_image')?>" alt="{{ the_title() }}"/>
+              <h3>{{ the_title() }}</h3>
+              <p><?php echo get_field('excerpt')?></p>
+              <a href="<?php echo get_field('full_link')?>">Read More ></a>
+            </div>
+          <?php endwhile; wp_reset_postdata(); ?>
+        </div>
+        <br><br>
+        <a class="btn btn-primary" href="#">See all Google Reviews</a>
+      </div>
 
-  @if(($cta))
-  <div class="cta" style="background-image: url({!! $cta['image'] !!})">
-    <h2>{{ $cta['header'] }}</h2>
-    <a class="btn btn-tertiary" href="{!! $cta['cta_link'] !!}">{{ $cta['cta_text'] }}</a>
-  </div>
-  @endif
+      @if(($cta))
+      <div class="cta" style="background-image: url({!! $cta['image'] !!})">
+        <h2>{{ $cta['header'] }}</h2>
+        <a class="btn btn-tertiary" href="{!! $cta['cta_link'] !!}">{{ $cta['cta_text'] }}</a>
+      </div>
+      @endif
 @endsection

@@ -1,6 +1,6 @@
 .header-homepage {
   position: relative;
-  height: 87vh;
+  height: 91vh;
   background: rgba($color-blue-darker, 0.6);
   text-align: center;
   color: white;
@@ -29,5 +29,34 @@
 
   .hero {
     margin-top: 10%;
+  }
+
+  @media #{$medium-and-down} {
+    .hero {
+      margin-top: 25%;
+    }
+  }
+}
+
+#main-site-header {
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+
+  .nav-top .col {
+    text-align: center;
+  }
+}
+
+.page-header {
+  h1 {
+    text-align: center;
+    text-transform: uppercase;
+    // background: $color-blue;
+    padding: 20px;
+    margin: 0 auto;
+    // color: $color-white;
+    color: $color-blue;
   }
 }

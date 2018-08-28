@@ -8,6 +8,7 @@
     @if(is_front_page())
       <div class="wrap" role="document">
     @else
+      @include('partials.page-header')
       <div class="wrap container" role="document">
     @endif
 

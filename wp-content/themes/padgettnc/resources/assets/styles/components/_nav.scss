@@ -1,6 +1,19 @@
 /** Top Navigation Bar */
 nav {
-  background: inherit;
+  background: $color-white;
+}
+
+.logo {
+  max-height: 65px;
+  margin-top: 10px;
+
+  &:hover {
+    border: none;
+  }
+}
+
+.nav-top {
+  padding-top: 2em;
 }
 
 .topnav-wrapper {
@@ -8,6 +21,16 @@ nav {
 
   .btn {
     float: right;
+  }
+
+  @media #{$medium-and-down} {
+    width: 100%;
+
+    .btn {
+      padding: 0;
+      width: 100%;
+      margin-top: 20px;
+    }
   }
 }
 
@@ -115,6 +138,7 @@ nav {
         width: 100%;
         text-align: center;
         margin: 0;
+        top: 50px;
 
         li {
           float: none;
@@ -122,6 +146,10 @@ nav {
 
           &:first-of-type {
             padding-top: 20px;
+
+            @media #{$medium-and-down} {
+              padding-top: 0;
+            }
           }
 
           a {
@@ -190,6 +218,35 @@ nav {
 
       .mobilenav-active & {
         max-height: 300em;
+      }
+    }
+  }
+}
+
+@media #{$medium-and-down} {
+  .topnav-wrapper .menu-top-nav-container {
+    display: none;
+  }
+
+  .nav-primary {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    text-align: center;
+
+    .menu-item {
+      background: $color-white;
+
+      .sub-menu li {
+        background: $color-green;
+      }
+    }
+
+    [type="checkbox"] + label {
+      padding-left: 0;
+
+      &::before {
+        display: none;
       }
     }
   }

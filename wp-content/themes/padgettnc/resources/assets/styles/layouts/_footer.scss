@@ -31,6 +31,10 @@ footer {
       width: auto;
     }
 
+    .menu-top-nav-container {
+      justify-content: center;
+    }
+
     @media #{$large-and-down} {
       display: block;
 

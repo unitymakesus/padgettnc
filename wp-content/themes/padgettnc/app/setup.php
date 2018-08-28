@@ -77,6 +77,14 @@ add_action('after_setup_theme', function () {
      * @see resources/assets/styles/layouts/_tinymce.scss
      */
     add_editor_style(asset_path('styles/main.css'));
+
+    /**
+     * Enqueue editor styles for Gutenberg
+     */
+    function padgett_editor_styles() {
+      wp_enqueue_style( 'padgett-gutenberg-style', asset_path('styles/main.css') );
+    }
+    add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\padgett_editor_styles' );
 }, 20);
 
 /**
