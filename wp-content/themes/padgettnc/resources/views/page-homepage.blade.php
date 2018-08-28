@@ -31,30 +31,43 @@
 
   <div class="our-services container">
     @if(($services))
-    <div class="diamond-wrapper">
+      @php
+        $side = ['top', 'left', 'back', 'bottom', 'right', 'front'];
+        $i = 0;
+        $j = 0;
+      @endphp
+
       @foreach($services as $service)
-        <article class="diamond diamond-services">
-          <div class="content">
+        <div class="diamond diamond-service {{ $side[$i] }}" data-side="{{ $side[$i] }}">
+          <div class="diamond-content">
             <h3>{{ $service['title'] }}</h3>
             <img class="hover-icon" src="{{ $value['icon']}} "/>
           </div>
-        </article>
-
-        <div class="diamond diamond-content-container">
-          <div class="content">
-            <h3>{{ $service['title'] }}</h3>
-            <p>{{ $service['text'] }}</p>
-            <a class="btn btn-tertiary" href="{{ $service['cta_link'] }}">Learn More</a>
-          </div>
         </div>
+        @php $i++; @endphp
       @endforeach
-        <article class="diamond diamond-content-container">
-          <div class="content">
+
+      <div class="diamond-cube-container">
+        <div class="diamond-cube">
+          @foreach($services as $service)
+            <div class="diamond-cube-side {{ $side[$j] }}">
+              <div class="diamond-content">
+                <h3>{{ $service['title'] }}</h3>
+                <p>{{ $service['text'] }}</p>
+                <a class="btn btn-tertiary" href="{{ $service['cta_link'] }}">Learn More</a>
+              </div>
+            </div>
+            @php $j++; @endphp
+          @endforeach
+        </div>
+
+        <div class="diamond diamond-cube-side diamond-cube-default show">
+          <div class="diamond-content">
             <h3>What we do</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
-        </article>
-    </div>
+        </div>
+      </div>
     @endif
   </div>
 

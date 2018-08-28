@@ -11,6 +11,7 @@
 @else
   <header id="main-site-header" style="background-image:url('{!! get_the_post_thumbnail_url($id, 'full') !!}')">
 @endif
+
   <div class="nav-top row">
     <div class="col s6 l3">
       <a class="logo" href="{{ home_url('/') }}" rel="home">
@@ -38,18 +39,6 @@
       </div>
     </div>
   </div>
-
-  @if(is_front_page())
-    <div class="hero">
-      <h1>{{$hero['header']}}</h1>
-      <h3>{{$hero['subheader']}}</h3>
-    </div>
-
-    <div class="scroll-arrow">
-      <p>&#x21fd;</p>
-      <p>scroll to get started</p>
-    </div>
-  @endif
 </header>
 
 <nav class="nav-primary">
