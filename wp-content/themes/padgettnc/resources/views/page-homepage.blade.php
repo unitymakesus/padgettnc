@@ -4,6 +4,29 @@
 
 @extends('layouts.app')
 
+@section('header')
+  <header id="site-header" class="header-homepage banner" role="banner">
+    <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.png">
+      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.webm" type="video/webm">
+      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.mp4" type="video/mp4">
+    </video>
+
+    @include('partials.header')
+
+    <div class="hero">
+      <h1>{{$hero['header']}}</h1>
+      <h3>{{$hero['subheader']}}</h3>
+    </div>
+
+    <div class="scroll-arrow">
+      <p>&#x21fd;</p>
+      <p>scroll to get started</p>
+    </div>
+  </header>
+
+  @include('partials.navigation')
+@endsection
+
 @section('content')
   <div class="why-padgett container">
     @if($why)

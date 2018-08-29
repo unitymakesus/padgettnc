@@ -32,6 +32,8 @@ class App extends Controller
     }
 
     public function hero() {
-      return get_field('hero');
+      if (function_exists('get_field')) {
+        return get_field('hero');
+      }
     }
 }

@@ -21,7 +21,7 @@ p {
   font-family: $font-body;
   font-size: $size-regular;
   font-weight: 300;
-  line-height: 1.8em;
+  line-height: 1.5em;
 
   .accent {
     font-size: $size-regularmedium;
@@ -38,4 +38,17 @@ a {
 
 ul {
   list-style-type: lower-roman;
+
+  &:not(.browser-default) {
+    padding-left: 30px;
+
+    & > li {
+      list-style-type: disc;
+      font-weight: 300;
+    }
+  }
+}
+
+strong, b {
+  font-weight: 500;
 }

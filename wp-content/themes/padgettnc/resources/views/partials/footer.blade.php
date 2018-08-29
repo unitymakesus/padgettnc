@@ -1,17 +1,17 @@
 <footer class="content-info" role="contentinfo">
-  <div class="row footer-logos">
+  <div class="containter footer-logos flex flex-center space-between">
     @php dynamic_sidebar('footer-logos') @endphp
   </div>
 
   <div class="row footer-contact">
-    <div class="col l4 s12">
+    <div class="col m4 s12">
       @php dynamic_sidebar('footer-left') @endphp
     </div>
-    <div class="col l4 s12">
+    <div class="col m4 s12">
       @php dynamic_sidebar('footer-center') @endphp
     </div>
 
-    <div class="col l4 s12">
+    <div class="col m4 s12">
       @php dynamic_sidebar('footer-right') @endphp
     </div>
   </div>

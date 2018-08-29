@@ -1,10 +1,12 @@
 // import external dependencies
 import 'jquery';
-import 'materialize-css';
+// import 'materialize-css';
 import 'modaal';
 
 // Import everything from autoload
-import "./autoload/**/*"
+/* eslint-disable */
+import "./autoload/*"
+/* eslint-enable */
 
 // import local dependencies
 import Router from './util/Router';

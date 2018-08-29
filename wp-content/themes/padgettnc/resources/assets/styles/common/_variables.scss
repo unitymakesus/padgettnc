@@ -20,13 +20,38 @@ $size-regular: rem-calc(18px);
 $spacer: 2rem;
 
 // Modified Grid
-$small-screen: 768px;
-$medium-screen: 992px;
-$large-screen: 1205px;
+$xsmall-screen: 600px;
+$xsmall-screen-up: 601px;
 $small-screen-up: 769px;
 $medium-screen-up: 993px;
 $large-screen-up: 1201px;
-$small-and-up: "only screen and (min-width : #{$small-screen-up})";
-$small-and-down: "only screen and (max-width : #{$small-screen})";
-$large-and-down: "only screen and (max-width : #{$large-screen})";
-$medium-and-down: "only screen and (max-width : #{$medium-screen})";
+$small-screen: 768px;
+$medium-screen: 992px;
+$large-screen: 1200px;
+$small-and-up: "only screen and (min-width : #{$xsmall-screen-up})";
+$xsmall-and-down: "only screen and (max-width : #{$xsmall-screen})";
+
+@mixin cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+/** Gradients */
+// Utility mixin from Compass
+@mixin filter-gradient($start-color, $end-color, $orientation: vertical) {
+  $gradient-type: if($orientation == vertical, 0, 1);
+ /* stylelint-disable */
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=#{$gradient-type}, startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}'); // eslint-disable-line function-name-case
+  /* stylelint-enable */
+}
+// @mixin trans-white-gradient-up {
+//   @include filter-gradient($color-white-trans, $color-white, vertical);
+//
+//   background-image: -o-linear-gradient(180deg, $color-white-trans 40%, $color-white 100%);
+//   background-image: -moz-linear-gradient(180deg, $color-white-trans 40%, $color-white 100%);
+//   background-image: -ms-linear-gradient(180deg, $color-white-trans 40%, $color-white 100%);
+//   background-image: linear-gradient(180deg, $color-white-trans 40%, $color-white 100%);
+// }

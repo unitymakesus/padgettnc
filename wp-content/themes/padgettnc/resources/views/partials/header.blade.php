@@ -1,51 +1,27 @@
-@if(is_category())
-  <header id="main-site-header" style="background:
-    linear-gradient(rgba(0, 21, 42, 0.6), rgba(0, 21, 42, 0.6) ),
-    url(' <?php $category = get_the_category(); echo get_wp_term_image  ($category[0]->cat_ID)?> cover center'); background-position: center;
-    background-size: cover;">
-
-@else
-  <header id="main-site-header" style="background:
-  linear-gradient( rgba(0, 21, 42, 0.6), rgba(0, 21, 42, 0.6) ),
-  url('{!! get_the_post_thumbnail_url($id, 'full') !!}'); background-position: center;
-  background-size: cover;">
-@endif
-
-  <div class="nav-top row">
-    <div class="col s6 l3">
-      <a class="logo" href="{{ home_url('/') }}" rel="home">
-        @if (has_custom_logo())
-          @php
-            $custom_logo_id = get_theme_mod( 'custom_logo' );
-            $logo = wp_get_attachment_image_src( $custom_logo_id , 'logo' );
-          @endphp
-
-          <img class="logo"
-               src="{{ $logo[0] }}"
-               srcset="{{ $logo[0] }}"
-               alt="{{ get_bloginfo('name', 'display') }}" />
-        @else
-          {{ get_bloginfo('name', 'display') }}
-        @endif
-      </a>
-    </div>
-    <div class="col s6 l3 offset-l6">
-      <div class="topnav-wrapper">
-        @if (has_nav_menu('top_navigation'))
-          {!! wp_nav_menu(['theme_location' => 'top_navigation']) !!}
-        @endif
-        <a href="#" class="btn btn-tertiary">Client Portal</a>
-      </div>
+<div class="nav-top row">
+  <div class="col s6 l3">
+    <a class="logo" href="{{ home_url('/') }}" rel="home">
+      @if (has_custom_logo())
+        @php
+          $custom_logo_id = get_theme_mod( 'custom_logo' );
+          $logo = wp_get_attachment_image_src( $custom_logo_id , 'logo' );
+          $logo_2x = wp_get_attachment_image_src( $custom_logo_id, 'logo-2x' );
+        @endphp
+        <img src="{{ $logo[0] }}"
+             srcset="{{ $logo[0] }} 1x, {{ $logo_2x[0] }} 2x"
+             alt="{{ get_bloginfo('name', 'display') }}"
+             width="{{ $logo[1] }}" height="{{ $logo[2] }}" />
+      @else
+        {{ get_bloginfo('name', 'display') }}
+      @endif
+    </a>
+  </div>
+  <div class="col s6 l3 offset-l6">
+    <div class="topnav-wrapper">
+      @if (has_nav_menu('top_navigation'))
+        {!! wp_nav_menu(['theme_location' => 'top_navigation']) !!}
+      @endif
+      <a href="https://padgettnc.sharefile.com/" target="_blank" rel="noopener" class="btn btn-tertiary">Client Portal</a>
     </div>
   </div>
-</header>
-
-<nav class="nav-primary">
-  <div class="menu-trigger-wrapper hide-on-large-only">
-    <input type="checkbox" name="menu-trigger" id="menu-trigger" value="true" />
-    <label for="menu-trigger"><i class="material-icons" aria-label="Show navigation menu">menu</i></a>
-  </div>
-  @if (has_nav_menu('primary_navigation'))
-    {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'navbar-menu']) !!}
-  @endif
-</nav>
+</div>

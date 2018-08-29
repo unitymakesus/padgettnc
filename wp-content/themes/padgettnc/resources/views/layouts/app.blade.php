@@ -1,23 +1,36 @@
 <!doctype html>
-<html @php language_attributes() @endphp>
+<html {!! language_attributes() !!}>
   @include('partials.head')
-  <body @php body_class() @endphp>
+  <body {!! body_class() !!}>
+    @if (!is_user_logged_in())
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZPJJVP"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    @endif
+    <a href="#content" class="screen-reader-text">Skip to content</a>
+    <!--[if IE]>
+      <div class="alert alert-warning">
+        {!! __('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.', 'sage') !!}
+      </div>
+    <![endif]-->
     @php do_action('get_header') @endphp
 
-    @if(is_front_page())
+    {{-- @if(is_front_page())
       @include('partials.header-home')
-      <div class="wrap" role="document">
     @else
       @include('partials.header')
-      <div class="wrap" role="document">
-    @endif
+    @endif --}}
 
-      <div class="content">
-        <main class="main">
+    @yield('header');
+
+    <div id="content" class="content" role="document">
+      <div class="wrap">
+        <main id="main" class="main" role="main">
           @yield('content')
         </main>
         @if (App\display_sidebar())
-          <aside class="sidebar">
+          <aside id="aside" class="sidebar" role="complimentary">
             @include('partials.sidebar')
           </aside>
         @endif

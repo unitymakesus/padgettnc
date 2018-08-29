@@ -8,6 +8,27 @@
   }
 }
 
+.banner {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+
+  &::before {
+    content: '';
+    background: rgba($color-blue-darker, 0.6);
+
+    @include cover;
+  }
+
+  & > * {
+    position: relative;
+  }
+}
+
+.sticky-wrapper {
+  z-index: 50;
+}
+
 // Main site header title
 .page-header {
   h1 {
@@ -23,7 +44,7 @@
 .header-homepage {
   position: relative;
   height: 91vh;
-  background: rgba($color-blue-darker, 0.6);
+  // background: rgba($color-blue-darker, 0.6);
   text-align: center;
   color: white;
 

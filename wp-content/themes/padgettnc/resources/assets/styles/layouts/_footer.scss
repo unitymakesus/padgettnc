@@ -19,29 +19,15 @@ footer {
         width: auto;
       }
     }
-
-    @media #{$large-and-down} {
-      display: block;
-    }
   }
 
   // Footer contact section
   .footer-contact {
     color: white;
-    display: flex;
-    align-items: center;
 
     img {
       height: 66px;
       width: auto;
-    }
-
-    @media #{$large-and-down} {
-      display: block;
-
-      img {
-        display: none;
-      }
     }
   }
 
@@ -58,7 +44,7 @@ footer {
       text-align: center;
     }
 
-    @media #{$large-and-down} {
+    @media #{$medium-and-down} {
       text-align: center;
     }
   }

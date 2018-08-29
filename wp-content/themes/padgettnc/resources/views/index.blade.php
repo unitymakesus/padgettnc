@@ -1,5 +1,20 @@
 @extends('layouts.app')
 
+@section('header')
+  @if(is_category())
+    @php
+      $category = get_the_category();
+      $background = get_wp_term_image($category[0]->cat_ID);
+    @endphp
+  @else
+    @php $background = asset_path('PadgetB-Roll.png') @endphp
+  @endif
+  <header id="main-site-header" class="banner" style="background-image:url('');">
+    @include('partials.header')
+    @include('partials.navigation')
+  </header>
+@endsection
+
 @section('content')
   @include('partials.page-header')
 
