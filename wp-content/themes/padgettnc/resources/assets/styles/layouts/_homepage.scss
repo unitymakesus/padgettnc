@@ -1,8 +1,10 @@
 .home {
+  // Why Padgett
   .why-padgett {
     padding: 5em 0;
   }
 
+  // Values
   .our-values {
     article {
       background: $color-blue;
@@ -37,29 +39,7 @@
     }
   }
 
-  .client-spotlight {
-    background: $color-blue;
-    padding: 6em 5em;
-
-    &-card {
-      padding: 30px;
-      background: white;
-
-      h2 {
-        text-align: center;
-      }
-
-      .company-logo {
-        text-align: center;
-        padding-top: 2em;
-      }
-    }
-
-    @media #{$large-and-down} {
-      padding: 6em 0;
-    }
-  }
-
+  // Google Review
   .google-review {
     margin: 6em auto;
     text-align: center;
@@ -73,6 +53,7 @@
     }
   }
 
+  // Call to action
   .cta {
     height: 325px;
     background-size: cover;

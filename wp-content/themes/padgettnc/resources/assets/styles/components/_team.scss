@@ -1,4 +1,5 @@
 .staff-member {
+  // Visible info
   .main-info {
     position: relative;
     width: 100%;
@@ -12,12 +13,14 @@
       z-index: -10;
     }
 
+    // Show hover pic
     &:hover {
       .hover-pic {
         z-index: 0;
       }
     }
 
+    // Modal bio info
     .bioinfo {
       position: absolute;
       bottom: 15px;

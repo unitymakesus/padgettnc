@@ -2,6 +2,10 @@
   display: flex;
   justify-content: flex-end;
 
+  ul {
+    padding-left: 0;
+  }
+
   li {
     a {
       text-indent: -1000em;

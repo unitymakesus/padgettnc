@@ -6,3 +6,12 @@ body {
 img {
   max-width: 100%;
 }
+
+ul:not(.browser-default) {
+  padding-left: 30px;
+}
+
+ul:not(.browser-default) > li {
+  list-style-type: disc;
+  font-weight: 300;
+}

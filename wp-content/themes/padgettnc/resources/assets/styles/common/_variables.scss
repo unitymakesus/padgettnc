@@ -1,25 +1,25 @@
-/** Colors */
+// Colors
 $color-blue: #004990;
 $color-blue-darker: darken($color-blue, 20%);
 $color-green: #7ea118;
 $color-black: #121212;
 $color-white: #fff;
 
-/** Fonts */
+// Fonts
 $font-headers: 'Hind', sans-serif;
 $font-body: 'Roboto', sans-serif;
 
-/** Font Sizes */
+// Font Sizes
 $size-extralarge: rem-calc(60px);
 $size-large: rem-calc(40px);
 $size-medium: rem-calc(25px);
 $size-regularmedium: rem-calc(20px);
 $size-regular: rem-calc(18px);
 
-/** Box Model  */
+// Box Model
 $spacer: 2rem;
 
-/** Modified Grid */
+// Modified Grid
 $small-screen: 768px;
 $medium-screen: 992px;
 $large-screen: 1205px;

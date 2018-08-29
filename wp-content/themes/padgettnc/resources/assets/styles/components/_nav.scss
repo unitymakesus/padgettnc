@@ -1,4 +1,3 @@
-/** Top Navigation Bar */
 nav {
   background: $color-white;
 }
@@ -48,6 +47,7 @@ nav {
   .navbar-menu {
     display: flex;
     justify-content: center;
+    padding-left: 0;
 
     & > li {
       & > a {
@@ -56,7 +56,7 @@ nav {
         color: $color-blue;
         text-align: center;
         text-transform: uppercase;
-        padding: 0 35px;
+        padding: 0 42px;
         position: relative;
 
         &:hover, &:focus, &:active {
@@ -135,10 +135,12 @@ nav {
         text-align: center;
         margin: 0;
         top: 50px;
+        padding-left: 0;
 
         li {
           float: none;
           line-height: 3em;
+          list-style-type: none;
 
           &:first-of-type {
             padding-top: 20px;
