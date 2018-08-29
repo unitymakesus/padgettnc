@@ -1,8 +1,14 @@
 @if(is_category())
-  <header id="main-site-header" style="background-image:url(' <?php $category = get_the_category(); echo get_wp_term_image ($category[0]->cat_ID)?> ')">
+  <header id="main-site-header" style="background:
+    linear-gradient(rgba(0, 21, 42, 0.6), rgba(0, 21, 42, 0.6) ),
+    url(' <?php $category = get_the_category(); echo get_wp_term_image  ($category[0]->cat_ID)?> cover center'); background-position: center;
+    background-size: cover;">
 
 @else
-  <header id="main-site-header" style="background-image:url('{!! get_the_post_thumbnail_url($id, 'full') !!}')">
+  <header id="main-site-header" style="background:
+  linear-gradient( rgba(0, 21, 42, 0.6), rgba(0, 21, 42, 0.6) ),
+  url('{!! get_the_post_thumbnail_url($id, 'full') !!}'); background-position: center;
+  background-size: cover;">
 @endif
 
   <div class="nav-top row">

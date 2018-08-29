@@ -3,6 +3,10 @@
   max-width: 120px;
   max-height: 23px;
   float: right;
+
+  &:hover {
+    border: none;
+  }
 }
 
 .svg-unity-logo {

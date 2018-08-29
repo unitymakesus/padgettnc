@@ -1,3 +1,4 @@
+// Main general social nav
 .menu-top-nav-container {
   display: flex;
   justify-content: flex-end;
@@ -7,6 +8,8 @@
   }
 
   li {
+    list-style-type: none !important;
+
     a {
       text-indent: -1000em;
       display: block;
@@ -30,6 +33,10 @@
       &:last-of-type {
         margin-right: 0;
       }
+
+      &:hover {
+        border: none;
+      }
     }
 
     &.icon-fb a::before {
@@ -51,5 +58,28 @@
 
   @media #{$small-and-down} {
     font-size: 10px;
+  }
+}
+
+// Social nav on footer
+.footer-contact {
+  .menu-top-nav-container {
+    justify-content: center;
+
+    li {
+      a {
+        top: 5px;
+        display: block;
+        height: 30px;
+        width: 30px;
+        margin: 0 7px;
+
+        &::before {
+          content: '';
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
   }
 }

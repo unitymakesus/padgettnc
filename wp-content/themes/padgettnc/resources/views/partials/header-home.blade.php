@@ -1,11 +1,11 @@
 <header id="site-header" class="header-homepage">
-  <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Video-Screenshot.png">
-    {{-- <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.webm" type="video/webm">
-    <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Mt_Baker.mp4" type="video/mp4"> --}}
+  <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.png">
+    {{-- <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.webm" type="video/webm">
+    <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.mp4" type="video/mp4">
   </video>
 
   <div class="nav-top row">
-    <div class="col s3">
+    <div class="col s6 l3">
       <a class="logo" href="{{ home_url('/') }}" rel="home">
         @if (has_custom_logo())
           @php
@@ -22,7 +22,7 @@
         @endif
       </a>
     </div>
-    <div class="col s3 offset-s6">
+    <div class="col s6 l3 offset-l6">
       <div class="topnav-wrapper">
         @if (has_nav_menu('top_navigation'))
           {!! wp_nav_menu(['theme_location' => 'top_navigation']) !!}

@@ -5,10 +5,18 @@ nav {
 .logo {
   max-height: 65px;
   margin-top: 10px;
+
+  &:hover {
+    border: none;
+  }
 }
 
 .nav-top {
   padding-top: 2em;
+
+  @media #{$medium-and-down} {
+    padding-top: 4.4em;
+  }
 }
 
 .topnav-wrapper {
