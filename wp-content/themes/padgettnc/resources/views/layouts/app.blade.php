@@ -16,12 +16,6 @@
     <![endif]-->
     @php do_action('get_header') @endphp
 
-    {{-- @if(is_front_page())
-      @include('partials.header-home')
-    @else
-      @include('partials.header')
-    @endif --}}
-
     @yield('header');
 
     <div id="content" class="content" role="document">

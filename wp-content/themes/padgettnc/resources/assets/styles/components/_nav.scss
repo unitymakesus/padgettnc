@@ -3,8 +3,12 @@ nav {
 }
 
 .logo {
-  max-height: 65px;
   margin-top: 10px;
+
+  img {
+    height: 65px;
+    width: auto;
+  }
 
   &:hover {
     border: none;

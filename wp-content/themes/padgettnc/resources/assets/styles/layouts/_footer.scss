@@ -23,11 +23,17 @@ footer {
 
   // Footer contact section
   .footer-contact {
+    display: flex;
+    align-items: center;
     color: white;
 
     img {
       height: 66px;
       width: auto;
+    }
+
+    @media #{$small-and-down} {
+      display: block;
     }
   }
 

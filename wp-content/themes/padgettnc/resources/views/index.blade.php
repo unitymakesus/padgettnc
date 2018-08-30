@@ -9,7 +9,7 @@
   @else
     @php $background = asset_path('PadgetB-Roll.png') @endphp
   @endif
-  <header id="main-site-header" class="banner" style="background-image:url('');">
+  <header id="main-site-header" class="banner" style="background-image:url('{{$background}}');">
     @include('partials.header')
     @include('partials.navigation')
   </header>
