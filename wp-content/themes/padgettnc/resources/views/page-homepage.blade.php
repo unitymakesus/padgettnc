@@ -6,7 +6,7 @@
 
 @section('header')
   <header id="site-header" class="header-homepage banner" role="banner">
-    <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.png">
+    <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.jpg">
       <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.webm" type="video/webm">
       <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.mp4" type="video/mp4">
     </video>

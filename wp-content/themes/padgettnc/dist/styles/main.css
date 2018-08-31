@@ -11131,7 +11131,7 @@ b {
 
 @media only screen and (min-width: 993px) {
   .container {
-    width: 90%;
+    width: 70%;
   }
 }
 
@@ -11250,6 +11250,23 @@ b {
   z-index: 5;
 }
 
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: static;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.wpcf7-checkbox {
+  -webkit-column-count: 2;
+          column-count: 2;
+  display: block;
+}
+
+span.wpcf7-list-item {
+  display: block !important;
+}
+
 @media only screen and (max-width: 600px) {
   .row .col.xs12 {
     width: 100%;
@@ -11351,8 +11368,12 @@ nav {
 }
 
 .logo {
-  max-height: 65px;
   margin-top: 10px;
+}
+
+.logo img {
+  height: 65px;
+  width: auto;
 }
 
 .logo:hover {
@@ -11927,12 +11948,24 @@ footer .footer-logos .widget_media_image .image {
 }
 
 footer .footer-contact {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: white;
 }
 
 footer .footer-contact img {
   height: 66px;
   width: auto;
+}
+
+@media only screen and (max-width: 600px) {
+  footer .footer-contact {
+    display: block;
+  }
 }
 
 footer .footer-copyright {
@@ -12255,8 +12288,24 @@ footer .footer-copyright .privacy-wrapper {
   margin: 0;
 }
 
+.content-box-green {
+  background: #7ea118;
+  color: #fff;
+}
+
+.content-box-blue {
+  background: #004990;
+  color: #fff;
+}
+
+.fl-accordion-item {
+  background: #004990;
+  color: #fff;
+}
+
 .home .why-padgett {
   padding: 5em 0;
+  padding-top: 3em;
 }
 
 .home .our-values article {

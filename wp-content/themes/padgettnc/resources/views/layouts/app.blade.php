@@ -16,6 +16,7 @@
     <![endif]-->
     @php do_action('get_header') @endphp
 
+<<<<<<< HEAD
     {{-- @if(is_front_page())
       @include('partials.header-home')
     @else
@@ -23,6 +24,9 @@
     @endif --}}
 
     @yield('header')
+=======
+    @yield('header');
+>>>>>>> c3ab58228b885b4441c9f07af18b3698d0d961d3
 
     <div id="content" class="content" role="document">
       <div class="wrap">
