@@ -7,7 +7,7 @@
       $background = get_wp_term_image($category[0]->cat_ID);
     @endphp
   @else
-    @php $background = asset_path('PadgetB-Roll.png') @endphp
+    @php $background = asset_path('padgettb-roll.jpg') @endphp
   @endif
   <header id="main-site-header" class="banner" style="background-image:url('{{ $background }}');">
     @include('partials.header')
