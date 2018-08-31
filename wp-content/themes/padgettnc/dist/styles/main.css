@@ -11081,13 +11081,13 @@ h3 {
 
 p {
   font-family: "Roboto", sans-serif;
-  font-size: 1.05882rem;
+  font-size: 1.17647rem;
   font-weight: 300;
   line-height: 1.5em;
 }
 
 p .accent {
-  font-size: 1.17647rem;
+  font-size: 1.29412rem;
 }
 
 a {
@@ -11267,7 +11267,7 @@ img {
   background: #fff;
   height: 45px;
   line-height: 43px;
-  font-size: 1.05882rem;
+  font-size: 1.17647rem;
   font-family: "Hind", sans-serif;
   position: relative;
   -webkit-transition: all 0.3s;
@@ -11420,7 +11420,7 @@ nav {
 
 .menu-main-menu-container .navbar-menu > li > a {
   font-family: "Hind", sans-serif;
-  font-size: 1.17647rem;
+  font-size: 1.29412rem;
   color: #004990;
   text-align: center;
   text-transform: uppercase;
@@ -11842,7 +11842,7 @@ nav {
 .page-header h1 {
   text-align: center;
   text-transform: uppercase;
-  padding: 20px;
+  padding: 1em 20px;
   margin: 0 auto;
   color: #004990;
 }
@@ -11879,7 +11879,13 @@ nav {
 }
 
 .header-homepage .hero {
-  margin-top: 10%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  width: 80%;
+  text-align: center;
 }
 
 @media only screen and (max-width: 992px) {
@@ -11982,6 +11988,16 @@ footer .footer-copyright .privacy-wrapper {
 .diamond {
   position: absolute;
   margin: 0;
+}
+
+.diamond-content {
+  -webkit-transform: rotate(-45deg);
+       -o-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -11991,18 +12007,23 @@ footer .footer-copyright .privacy-wrapper {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-}
-
-.diamond-content {
-  -webkit-transform: rotate(-45deg);
-       -o-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-  text-align: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
 }
 
 .diamond-content * {
   -webkit-transform: perspective(1px) scale(1);
           transform: perspective(1px) scale(1);
+}
+
+.diamond-content h3 {
+  margin: 0;
+}
+
+.diamond-content p {
+  font-size: 1.05882rem;
 }
 
 .diamond-cube-container {
@@ -12120,15 +12141,16 @@ footer .footer-copyright .privacy-wrapper {
 .diamond-cube-side.diamond-cube-default {
   -webkit-transform: translateZ(125px);
           transform: translateZ(125px);
-  z-index: 5;
+  z-index: -1;
   opacity: 0;
 }
 
 .diamond-cube-side.diamond-cube-default.show {
   opacity: 1;
-  -webkit-transition: opacity 0.25s ease 0.25s;
-  -o-transition: opacity 0.25s ease 0.25s;
-  transition: opacity 0.25s ease 0.25s;
+  z-index: 5;
+  -webkit-transition: all 0.25s ease 0.25s;
+  -o-transition: all 0.25s ease 0.25s;
+  transition: all 0.25s ease 0.25s;
 }
 
 .diamond-service {

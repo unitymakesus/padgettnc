@@ -22,7 +22,7 @@
       @include('partials.header')
     @endif --}}
 
-    @yield('header');
+    @yield('header')
 
     <div id="content" class="content" role="document">
       <div class="wrap">

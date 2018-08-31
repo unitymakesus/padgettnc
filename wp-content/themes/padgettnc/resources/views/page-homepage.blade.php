@@ -15,13 +15,13 @@
 
     <div class="hero">
       <h1>{{$hero['header']}}</h1>
-      <h3>{{$hero['subheader']}}</h3>
+      <h2>{{$hero['subheader']}}</h2>
+      <div class="scroll-arrow">
+        <p>&#x21fd;</p>
+        <p>scroll to get started</p>
+      </div>
     </div>
 
-    <div class="scroll-arrow">
-      <p>&#x21fd;</p>
-      <p>scroll to get started</p>
-    </div>
   </header>
 
   @include('partials.navigation')
@@ -64,7 +64,7 @@
         <div class="diamond diamond-service {{ $side[$i] }}" data-side="{{ $side[$i] }}">
           <div class="diamond-content">
             <h3>{{ $service['title'] }}</h3>
-            <img class="hover-icon" src="{{ $value['icon']}} "/>
+            {{-- <img class="hover-icon" src="{{ $value['icon']}} "/> --}}
           </div>
         </div>
         @php $i++; @endphp

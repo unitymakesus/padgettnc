@@ -99,9 +99,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 // Import everything from autoload
-/* eslint-disable */
 
-/* eslint-enable */
 
 // import local dependencies
 
