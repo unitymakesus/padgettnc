@@ -94,6 +94,28 @@
     @endif
   </div>
 
+  <div class="our-services-mobile container">
+    <div class="row">
+      <div class="col s12">
+        <h2>What we do</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </div>
+    </div>
+
+    @if(($services))
+    <div class="row">
+      @foreach($services as $service)
+        <div class="col s6 service-mobile-container">
+            <h3>{{ $service['title'] }}</h3>
+            <!-- <img class="hover-icon" src="{{ $value['icon']}} "/> -->
+            <p>{{ $service['text'] }}</p>
+            <a class="btn btn-tertiary" href="{{ $service['cta_link'] }}">Learn More</a>
+        </div>
+      @endforeach
+    </div>
+    @endif
+  </div>
+
   <?php $the_query = new WP_Query( array( 'category_name' => 'client-spotlight', 'posts_per_page' => 1 ) ); ?>
     <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
       <div class="client-spotlight">
