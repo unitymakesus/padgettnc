@@ -16,7 +16,7 @@
     <![endif]-->
     @php do_action('get_header') @endphp
 
-    @yield('header');
+    @yield('header')
 
     <div id="content" class="content" role="document">
       <div class="wrap">

@@ -43,7 +43,16 @@ Template Name: Our Team
             </a>
 
             <div class="modal" id="team-<?php echo get_the_ID() ?>">
-              <?php echo get_field('bio')?>
+              <div class="row">
+                <div class="col s12 m4">
+                  <img class="hover-pic" src="<?php echo get_field('headshot_alt')?>" alt="{{ the_title() }}"/>
+                </div>
+                <div class="col s12 m8">
+                  <h3>{{ the_title() }}</h3>
+                  <p><?php echo get_field('job_title')?></p>
+                  <?php echo get_field('bio')?>
+                </div>
+              </div>
             </div>
           </div>
       @endwhile

@@ -6,22 +6,22 @@
 
 @section('header')
   <header id="site-header" class="header-homepage banner" role="banner">
-    <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.jpg">
-      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.webm" type="video/webm">
-      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/PadgettB-Roll.mp4" type="video/mp4">
+    <video muted autoplay loop poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/padgettb-roll.jpg">
+      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/padgettb-roll.webm" type="video/webm">
+      <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/padgettb-roll.mp4" type="video/mp4">
     </video>
 
     @include('partials.header')
 
     <div class="hero">
       <h1>{{$hero['header']}}</h1>
-      <h3>{{$hero['subheader']}}</h3>
+      <h2>{{$hero['subheader']}}</h2>
+      <div class="scroll-arrow">
+        <p>&#x21fd;</p>
+        <p>scroll to get started</p>
+      </div>
     </div>
 
-    <div class="scroll-arrow">
-      <p>&#x21fd;</p>
-      <p>scroll to get started</p>
-    </div>
   </header>
 
   @include('partials.navigation')
@@ -64,7 +64,7 @@
         <div class="diamond diamond-service {{ $side[$i] }}" data-side="{{ $side[$i] }}">
           <div class="diamond-content">
             <h3>{{ $service['title'] }}</h3>
-            <img class="hover-icon" src="{{ $value['icon']}} "/>
+            {{-- <img class="hover-icon" src="{{ $value['icon']}} "/> --}}
           </div>
         </div>
         @php $i++; @endphp

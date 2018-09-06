@@ -4,9 +4,7 @@ import 'jquery';
 import 'modaal';
 
 // Import everything from autoload
-/* eslint-disable */
 import "./autoload/*"
-/* eslint-enable */
 
 // import local dependencies
 import Router from './util/Router';
