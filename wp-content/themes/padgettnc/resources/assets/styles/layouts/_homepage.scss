@@ -73,6 +73,14 @@
       object-fit: cover;
       object-position: center;
     }
+
+    @media #{$medium-and-down} {
+      margin: 3em auto;
+
+      .col {
+        margin: 2em 0;
+      }
+    }
   }
 
   // Call to action
