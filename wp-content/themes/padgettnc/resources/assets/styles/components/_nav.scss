@@ -167,10 +167,6 @@ nav {
 
           &:first-of-type {
             padding-top: 20px;
-
-            @media #{$medium-and-down} {
-              padding-top: 0;
-            }
           }
 
           a {
@@ -244,10 +240,12 @@ nav {
 }
 
 @media #{$medium-and-down} {
+  // Remove main navigation
   .topnav-wrapper .menu-top-nav-container {
     display: none;
   }
 
+  // Mobile Nav
   .nav-primary {
     position: fixed;
     top: 0;
@@ -256,6 +254,7 @@ nav {
 
     .menu-item {
       background: $color-white;
+      padding: 10px 0;
 
       .sub-menu li {
         background: $color-green;
@@ -267,6 +266,14 @@ nav {
 
       &::before {
         display: none;
+      }
+    }
+
+    .menu-trigger-wrapper {
+      height: 100%;
+
+      #menu-trigger {
+        opacity: 0;
       }
     }
   }
