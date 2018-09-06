@@ -10,13 +10,13 @@
       height: auto;
       position: absolute;
       top: 0;
-      z-index: -10;
+      display: none;
     }
 
     // Show hover pic
     &:hover {
       .hover-pic {
-        z-index: 0;
+        display: block;
       }
     }
 

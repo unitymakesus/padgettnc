@@ -2,6 +2,10 @@ h1 {
   font-family: $font-headers;
   font-size: $size-extralarge;
   font-weight: 500;
+
+  @media #{$medium-and-down} {
+    font-size: 3em;
+  }
 }
 
 h2 {

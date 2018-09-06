@@ -19,7 +19,18 @@ nav {
   padding-top: 2em;
 
   @media #{$medium-and-down} {
+    top: 55%;
+    transform: translateY(-50%);
+  }
+}
+
+.header-homepage .nav-top {
+  padding-top: 2em;
+
+  @media #{$medium-and-down} {
     padding-top: 4.4em;
+    top: 0;
+    transform: none;
   }
 }
 
