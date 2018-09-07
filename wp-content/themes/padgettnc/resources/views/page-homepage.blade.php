@@ -148,7 +148,7 @@
           <?php endwhile; wp_reset_postdata(); ?>
         </div>
         <br><br>
-        <a class="btn btn-primary" href="#">See all Google Reviews</a>
+        <a class="btn btn-primary" href="https://goo.gl/ZSFTqD" target="_blank">See all Google Reviews</a>
       </div>
 
       @if(($cta))
