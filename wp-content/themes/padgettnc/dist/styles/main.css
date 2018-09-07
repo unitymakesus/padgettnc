@@ -12447,6 +12447,14 @@ footer .footer-copyright .privacy-wrapper {
   padding-top: 3em;
 }
 
+.home .our-values .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .home .our-values article {
   background: #004990;
   color: #fff;
