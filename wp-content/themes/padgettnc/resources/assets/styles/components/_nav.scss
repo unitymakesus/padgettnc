@@ -246,10 +246,15 @@ nav {
   }
 
   // Mobile Nav
+  .sticky-wrapper {
+    height: 0 !important;
+  }
+
   .nav-primary {
     position: fixed;
     top: 0;
     z-index: 100;
+    width: 100%;
     text-align: center;
 
     .menu-item {
