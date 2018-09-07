@@ -64,4 +64,15 @@
       background: $color-green;
     }
   }
+
+  // Tertiary styles
+  &-tertiaryInvert {
+    color: $color-blue;
+
+    &:hover, &:focus, &:active {
+      border-color: $color-blue;
+      background: $color-blue;
+      color: $color-white;
+    }
+  }
 }

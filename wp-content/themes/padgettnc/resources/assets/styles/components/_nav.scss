@@ -276,9 +276,14 @@ nav {
 
     .menu-trigger-wrapper {
       height: 100%;
+      background: $color-blue;
 
       #menu-trigger {
         opacity: 0;
+      }
+
+      label {
+        color: $color-white;
       }
     }
   }
