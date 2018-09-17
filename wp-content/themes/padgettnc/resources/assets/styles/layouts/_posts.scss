@@ -1,0 +1,35 @@
+// Archive
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-container {
+  text-align: center;
+  display: block;
+  color: $color-black;
+  padding: 0;
+  border: 2px solid $color-green;
+
+  img {
+    padding-top: 10px;
+    max-height: 75px;
+    width: auto;
+  }
+
+  &:hover {
+    background: $color-green;
+    color: $color-white;
+  }
+}
+
+// Single Post
+.single-post {
+  header {
+    text-align: center;
+
+    img {
+      margin: 1.5em 0;
+    }
+  }
+}

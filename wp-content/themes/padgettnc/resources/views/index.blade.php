@@ -25,6 +25,7 @@
     {!! get_search_form(false) !!}
   @endif
 
+  <div class="container">
     <div class="row posts">
       @php $i = 0; @endphp
       @while (have_posts()) @php the_post() @endphp
@@ -35,6 +36,7 @@
         @php $i++; @endphp
       @endwhile
     </div>
+  </div>
 
   {!! get_the_posts_navigation() !!}
 @endsection

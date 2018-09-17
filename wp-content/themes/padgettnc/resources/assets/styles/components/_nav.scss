@@ -8,6 +8,11 @@ nav {
   img {
     height: 65px;
     width: auto;
+
+    @media #{$medium-and-down} {
+      height: 45px;
+      margin-top: 5px;
+    }
   }
 
   &:hover {
@@ -239,9 +244,22 @@ nav {
   }
 }
 
+// Client Portal Link in main menu
+.client-mobile {
+  display: none;
+}
+
 @media #{$medium-and-down} {
+  .client-mobile {
+    display: block;
+  }
+
   // Remove main navigation
   .topnav-wrapper .menu-top-nav-container {
+    display: none;
+  }
+
+  .nav-top {
     display: none;
   }
 
@@ -275,8 +293,11 @@ nav {
     }
 
     .menu-trigger-wrapper {
-      height: 100%;
       background: $color-blue;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1em;
 
       #menu-trigger {
         opacity: 0;
@@ -284,6 +305,7 @@ nav {
 
       label {
         color: $color-white;
+        font-size: 2em;
       }
     }
   }

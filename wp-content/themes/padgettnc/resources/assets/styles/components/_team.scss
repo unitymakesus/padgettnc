@@ -27,9 +27,20 @@
       left: 5px;
       color: white;
 
-      h3, p {
+      h3 {
+        text-transform: uppercase;
+        margin: 0;
+      }
+
+      p {
+        font-size: 1.1em;
         margin: 0;
       }
     }
   }
+}
+
+// Modal Styling
+.modaal-overlay {
+  background: rgba($color-blue, 1) !important;
 }

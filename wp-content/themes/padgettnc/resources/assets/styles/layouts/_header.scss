@@ -28,6 +28,7 @@
 .sticky-wrapper {
   position: relative;
   z-index: 50;
+  height: auto !important;
 }
 
 // Main site header title
@@ -44,7 +45,7 @@
 // Homepage Header
 .header-homepage {
   position: relative;
-  height: 91vh;
+  height: 70vh;
   text-align: center;
   color: white;
 
@@ -60,6 +61,7 @@
   }
 
   .scroll-arrow p {
+    display: none;
     margin: 0;
 
     &:first-of-type {
@@ -80,7 +82,6 @@
   }
 
   @media #{$medium-and-down} {
-    height: 100vh;
     padding-top: 20px;
 
     .hero {
