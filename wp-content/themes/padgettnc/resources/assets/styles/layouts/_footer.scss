@@ -19,6 +19,15 @@ footer {
         width: auto;
       }
     }
+
+    @media #{$small-and-down} {
+      padding: 1em 0;
+
+      .widget_media_image {
+        padding: 0 1em;
+        width: 75px;
+      }
+    }
   }
 
   // Footer contact section
@@ -34,6 +43,11 @@ footer {
 
     @media #{$small-and-down} {
       display: block;
+      text-align: center;
+
+      .col:nth-of-type(2) {
+        display: none;
+      }
     }
   }
 
@@ -54,6 +68,10 @@ footer {
       text-align: center;
     }
   }
+
+  @media #{$medium-and-down} {
+    margin-top: 0;
+  }
 }
 
 // Footer Navigation
@@ -61,6 +79,11 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  padding: 0;
+
+  @media #{$medium-and-down} {
+    align-items: center;
+  }
 
   li {
     list-style-type: none;

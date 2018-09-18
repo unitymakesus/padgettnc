@@ -78,4 +78,10 @@
       }
     }
   }
+
+  .menu-top-nav-container {
+    @media #{$medium-and-down} {
+      justify-content: center;
+    }
+  }
 }
