@@ -12,6 +12,8 @@
   padding: 20px;
   box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  border-bottom: 3px solid white;
+  transition: border 0.3s;
 
   img {
     padding-top: 10px;
