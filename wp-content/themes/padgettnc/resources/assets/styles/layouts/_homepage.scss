@@ -5,6 +5,16 @@
     padding-top: 3em;
   }
 
+  h1 {
+    color: $color-white;
+  }
+
+  .subheader {
+    display: block;
+    font-weight: 400;
+    font-size: $size-large;
+  }
+
   // Values
   .our-values {
     .row {
@@ -23,6 +33,12 @@
 
       img {
         width: 50px;
+        margin-top: 1em;
+      }
+
+      h3 {
+        color: $color-white;
+        margin: 1em 0;
       }
 
       .hover-quote {

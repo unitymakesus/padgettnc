@@ -29,4 +29,10 @@ class PageHomepage extends Controller
       return get_field('cta');
     }
   }
+
+  public function what() {
+    if (function_exists('get_field')) {
+      return get_field('what_we_do');
+    }
+  }
 }

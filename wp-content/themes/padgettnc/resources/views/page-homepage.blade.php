@@ -14,12 +14,9 @@
     @include('partials.header')
 
     <div class="hero">
-      <h1>{{$hero['header']}}</h1>
-      <h2>{{$hero['subheader']}}</h2>
-      <div class="scroll-arrow">
-        <p>&#x21fd;</p>
-        <p>scroll to get started</p>
-      </div>
+      <h1>{{$hero['header']}}
+        <span class="subheader">{{$hero['subheader']}}</span>
+      </h1>
     </div>
 
   </header>
@@ -64,7 +61,7 @@
         <div class="diamond diamond-service {{ $side[$i] }}" data-side="{{ $side[$i] }}">
           <div class="diamond-content">
             <h3>{{ $service['title'] }}</h3>
-            {{-- <img class="hover-icon" src="{{ $value['icon']}} "/> --}}
+            <img class="hover-icon" src="{{ $service['icon']}} "/>
           </div>
         </div>
         @php $i++; @endphp
@@ -86,8 +83,8 @@
 
         <div class="diamond diamond-cube-side diamond-cube-default show">
           <div class="diamond-content">
-            <h3>What we do</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <h3>What We Do</h3>
+            {{ $what }}
           </div>
         </div>
       </div>
@@ -97,8 +94,8 @@
   <div class="our-services-mobile container">
     <div class="row">
       <div class="col s12">
-        <h2>What we do</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h2>What We Do</h2>
+        {{ $what }}
       </div>
     </div>
 
