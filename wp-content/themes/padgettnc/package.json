@@ -110,6 +110,7 @@
   },
   "dependencies": {
     "jquery": "^3.3.1",
+    "macy": "^2.3.1",
     "material-design-icons": "^3.0.1",
     "materialize-css": "^0.100.2",
     "modaal": "^0.4.3",

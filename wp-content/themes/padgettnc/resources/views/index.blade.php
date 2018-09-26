@@ -26,14 +26,9 @@
   @endif
 
   <div class="container">
-    <div class="row posts">
-      @php $i = 0; @endphp
+    <div class="grid posts">
       @while (have_posts()) @php the_post() @endphp
-        @if($i % 3 === 0)
-      </div><div class="row posts">
-        @endif
         @include('partials.content-'.get_post_type())
-        @php $i++; @endphp
       @endwhile
     </div>
   </div>

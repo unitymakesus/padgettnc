@@ -1,4 +1,16 @@
+.peoples {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  .info {
+    padding-left: 3em;
+  }
+}
+
 .staff-member {
+  margin-top: 1em;
+
   // Visible info
   .main-info {
     position: relative;
