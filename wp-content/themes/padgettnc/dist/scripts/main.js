@@ -1912,8 +1912,24 @@ Router.prototype.loadEvents = function loadEvents () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function($) {/* harmony default export */ __webpack_exports__["a"] = ({
+/* WEBPACK VAR INJECTION */(function($) {throw new Error("Cannot find module \"macy/dist/macy.js\"");
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
   init: function init() {
+    __WEBPACK_IMPORTED_MODULE_0_macy_dist_macy_js___default()({
+      container: '.grid',
+      trueOrder: true,
+      columns: 2,
+      margin: {
+        x: 20,
+        y: 30,
+      },
+      breakAt: {
+        767: 1,
+      },
+    });
+
     $(".nav-primary").sticky({topSpacing:0});
 
     $('.menu-main-menu-container .menu-item').each(function() {

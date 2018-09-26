@@ -12490,6 +12490,25 @@ footer .footer-copyright .privacy-wrapper {
   background: #7ab245;
 }
 
+.peoples {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.peoples .info {
+  padding-left: 3em;
+}
+
+.staff-member {
+  margin-top: 1em;
+}
+
 .staff-member .main-info {
   position: relative;
   width: 100%;
@@ -12673,22 +12692,20 @@ footer .footer-copyright .privacy-wrapper {
 }
 
 .post-container {
+  margin-top: 2em;
   text-align: center;
   display: block;
   color: #121212;
-  padding: 0;
-  border: 2px solid #7ab245;
+  padding: 20px;
+  -webkit-box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
 .post-container img {
   padding-top: 10px;
-  max-height: 75px;
+  max-height: 100px;
   width: auto;
-}
-
-.post-container:hover {
-  background: #7ab245;
-  color: #fff;
 }
 
 .single-post header {

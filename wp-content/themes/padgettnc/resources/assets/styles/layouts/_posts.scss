@@ -5,21 +5,18 @@
 }
 
 .post-container {
+  margin-top: 2em;
   text-align: center;
   display: block;
   color: $color-black;
-  padding: 0;
-  border: 2px solid $color-green;
+  padding: 20px;
+  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 
   img {
     padding-top: 10px;
-    max-height: 75px;
+    max-height: 100px;
     width: auto;
-  }
-
-  &:hover {
-    background: $color-green;
-    color: $color-white;
   }
 }
 
