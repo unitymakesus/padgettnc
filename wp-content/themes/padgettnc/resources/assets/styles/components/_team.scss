@@ -39,11 +39,12 @@
       color: white;
       background: rgba(0, 0, 0, 0.5);
       width: 100%;
-      padding: 5px;
+      padding: 5px 10px;
 
       h3 {
-        text-transform: uppercase;
         margin: 0;
+        color: $color-white;
+        font-size: $size-regularmedium;
       }
 
       p {
@@ -57,4 +58,35 @@
 // Modal Styling
 .modaal-overlay {
   background: rgba($color-blue, 1) !important;
+}
+
+.modaal-content-container {
+  h3 {
+    margin: 0;
+  }
+
+  p.job-title {
+    margin-top: 0;
+    font-weight: 500;
+  }
+}
+
+// Team 2 template
+.peoples.in-rows {
+  align-items: flex-start;
+
+  .staff-member {
+    margin-top: 0;
+  }
+
+  .info.col {
+    h2 {
+      margin-bottom: 0;
+    }
+
+    p.job-title {
+      margin-top: 0;
+      font-weight: 500;
+    }
+  }
 }

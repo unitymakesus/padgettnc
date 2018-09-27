@@ -32,8 +32,12 @@ Template Name: Our Team
           <div class="col m4 staff-member">
             <a href="#team-<?php echo get_the_ID() ?>" class="inline">
               <div class="main-info">
-                <img src="<?php echo get_field('headshot')?>" alt="{{ the_title() }}"/>
-                <img class="hover-pic" src="<?php echo get_field('headshot_alt')?>" alt="{{ the_title() }}"/>
+                @php
+                  $headshot = get_field('headshot');
+                  $headshot_alt = get_field('headshot_alt');
+                @endphp
+                <img src="{{ $headshot['sizes']['large'] }}" alt="{{ the_title() }}"/>
+                <img class="hover-pic" src="{{ $headshot_alt['sizes']['large'] }}" alt=""/>
 
                 <div class="bioinfo">
                   <h3>{{ the_title() }}</h3>
@@ -45,12 +49,12 @@ Template Name: Our Team
             <div class="modal" id="team-<?php echo get_the_ID() ?>">
               <div class="row">
                 <div class="col s12 m4">
-                  <img class="hover-pic" src="<?php echo get_field('headshot_alt')?>" alt="{{ the_title() }}"/>
+                  <img class="hover-pic" src="{{ $headshot_alt['sizes']['large'] }}" alt="{{ the_title() }}"/>
                 </div>
                 <div class="col s12 m8">
                   <h3>{{ the_title() }}</h3>
-                  <p><?php echo get_field('job_title')?></p>
-                  <?php echo get_field('bio')?>
+                  <p class="job-title"><?php echo get_field('job_title'); ?></p>
+                  <?php echo wpautop(get_field('bio')); ?>
                 </div>
               </div>
             </div>

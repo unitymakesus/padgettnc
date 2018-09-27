@@ -37,11 +37,18 @@
 
   // Primary styles
   &-primary {
-    color: $color-green;
+    color: $color-white;
     border-color: $color-green;
+    background: $color-green;
 
     &:hover, &:focus, &:active {
-      background: $color-green;
+      color: $color-green;
+      background: $color-white;
+      border-color: $color-white;
+
+      &::after {
+        background-image: url('../images/icon-arrow-green.svg');
+      }
     }
   }
 
@@ -52,6 +59,7 @@
 
     &:hover, &:focus, &:active {
       background: $color-blue;
+      border-color: $color-blue;
     }
   }
 

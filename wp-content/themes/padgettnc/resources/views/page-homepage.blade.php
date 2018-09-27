@@ -29,6 +29,9 @@
     @if($why)
       <h2>{{ $why['header'] }}</h2>
       <p>{!! $why['text'] !!}</p>
+      @if(!empty($why['button_text']))
+        <a class="btn btn-primary" href="{{ $why['button_link'] }}">{{ $why['button_text'] }}</a>
+      @endif
     @endif
   </div>
 
@@ -49,6 +52,7 @@
     @endif
   </div>
 
+  {{-- Fancy Diamond Cube --}}
   <div class="our-services container">
     @if(($services))
       @php
@@ -58,7 +62,7 @@
       @endphp
 
       @foreach($services as $service)
-        <div class="diamond diamond-service {{ $side[$i] }}" data-side="{{ $side[$i] }}">
+        <div class="diamond diamond-service {{ $side[$i] }}" data-side="{{ $side[$i] }}" tabindex="0">
           <div class="diamond-content">
             <h3>{{ $service['title'] }}</h3>
             <img class="hover-icon" src="{{ $service['icon']}} "/>
@@ -91,7 +95,8 @@
     @endif
   </div>
 
-  <div class="our-services-mobile container">
+  {{-- Mobile Fallback --}}
+  <div class="our-services-mobile container" aria-hidden="true">
     <div class="row">
       <div class="col s12">
         <h2>What We Do</h2>
@@ -127,7 +132,7 @@
             <div class="col l6 m12">
               <p><?php the_excerpt(); ?></p>
 
-              <a class="btn btn-primary" href="<?php the_permalink() ?>">Read More</a>
+              <a class="btn btn-secondary" href="<?php the_permalink() ?>">Read More</a>
             </div>
           </div>
         </div>
@@ -147,13 +152,13 @@
           <?php endwhile; wp_reset_postdata(); ?>
         </div>
         <br><br>
-        <a class="btn btn-primary" href="https://goo.gl/ZSFTqD" target="_blank">See all Google Reviews</a>
+        <a class="btn btn-tertiary" href="https://goo.gl/ZSFTqD" target="_blank">See all Google Reviews</a>
       </div>
 
       @if(($cta))
       <div class="cta" style="background-image: url({!! $cta['image'] !!})">
         <h2>{{ $cta['header'] }}</h2>
-        <a class="btn btn-tertiary" href="{!! $cta['cta_link'] !!}">{{ $cta['cta_text'] }}</a>
+        <a class="btn btn-primary" href="{!! $cta['cta_link'] !!}">{{ $cta['cta_text'] }}</a>
       </div>
       @endif
 @endsection

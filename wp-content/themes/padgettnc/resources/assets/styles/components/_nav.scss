@@ -69,6 +69,10 @@ nav {
 }
 
 /** Main Navigation */
+.nav-primary {
+  @extend .z-depth-3;
+}
+
 .menu-main-menu-container {
   background: $color-white;
 
@@ -86,6 +90,7 @@ nav {
         text-transform: uppercase;
         padding: 0 42px;
         position: relative;
+        border: none;
 
         &:hover, &:focus, &:active {
           background: transparent;
@@ -146,6 +151,7 @@ nav {
 
       a {
         cursor: default;
+        border: none;
 
         &:hover, &:focus, &:active {
           border: none;
@@ -168,8 +174,8 @@ nav {
 
         li {
           float: none;
-          line-height: 3em;
           list-style-type: none;
+          line-height: 1.4em;
 
           &:first-of-type {
             padding-top: 20px;
@@ -179,6 +185,7 @@ nav {
             text-transform: uppercase;
             font-weight: 300;
             cursor: pointer;
+            padding: 0.75em 15px;
 
             &:hover, &:focus, &:active {
               background-color: rgba(0, 0, 0, 0.1);

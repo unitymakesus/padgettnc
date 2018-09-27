@@ -28,18 +28,22 @@ Template Name: Our Team2
     <div class="container">
       @while ($staff->have_posts())
         @php $staff->the_post() @endphp
-        <div class="row peoples">
+        <div class="row peoples in-rows">
           <div class="col m4 staff-member">
             <div class="main-info">
-              <img src="<?php echo get_field('headshot')?>" alt="{{ the_title() }}"/>
-              <img class="hover-pic" src="<?php echo get_field('headshot_alt')?>" alt="{{ the_title() }}"/>
+              @php
+                $headshot = get_field('headshot');
+                $headshot_alt = get_field('headshot_alt');
+              @endphp
+              <img src="{{ $headshot['sizes']['large'] }}" alt="{{ the_title() }}"/>
+              <img class="hover-pic" src="{{ $headshot_alt['sizes']['large'] }}" alt=""/>
             </div>
           </div>
 
           <div class="col s12 m8 info">
             <h2>{{ the_title() }}</h2>
-            <p><?php echo get_field('job_title')?></p>
-            <?php echo get_field('bio')?>
+            <p class="job-title"><?php echo get_field('job_title'); ?></p>
+            <?php echo wpautop(get_field('bio')); ?>
           </div>
         </div>
       @endwhile

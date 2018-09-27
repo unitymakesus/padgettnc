@@ -15,8 +15,7 @@ footer {
       text-align: center;
 
       .image {
-        max-height: 75px !important;
-        width: auto;
+        max-width: 150px !important;
       }
     }
 
@@ -53,8 +52,13 @@ footer {
 
   // Copyright row
   .footer-copyright {
-    background: $color-white;
+    background: $color-blue-darker;
+    color: $color-white;
     padding: 10px 0;
+
+    * {
+      color: $color-white;
+    }
 
     .row {
       margin: 0;
