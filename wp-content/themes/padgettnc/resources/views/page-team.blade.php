@@ -54,6 +54,29 @@ Template Name: Our Team
                 <div class="col s12 m8">
                   <h3>{{ the_title() }}</h3>
                   <p class="job-title"><?php echo get_field('job_title'); ?></p>
+
+                  @if(get_field('email'))
+                    <div class="team-icons">
+                      <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/email.svg">
+                      <a href="<?php echo get_field('email')?>" target="_blank">
+                      <?php echo get_field('email')?></a>
+                    </div>
+                  @endif
+
+                  @if(get_field('phone'))
+                    <div class="team-icons">
+                      <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/phone.svg">
+                      <a href="<?php echo get_field('phone')?>" target="_blank"><?php echo get_field('phone')?></a>
+                    </div>
+                  @endif
+
+                  @if(get_field('linkedin'))
+                    <div class="team-icons">
+                      <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-linkedin-black.svg">
+                      <a href="<?php echo get_field('linkedin')?>" target="_blank"><?php echo get_field('linkedin')?></a>
+                    </div>
+                  @endif
+                  
                   <?php echo wpautop(get_field('bio')); ?>
                 </div>
               </div>
