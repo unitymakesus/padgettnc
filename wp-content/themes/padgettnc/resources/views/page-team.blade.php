@@ -30,7 +30,7 @@ Template Name: Our Team
       @while ($staff->have_posts())
         @php $staff->the_post() @endphp
           <div class="col m4 staff-member">
-            <a href="#team-<?php echo get_the_ID() ?>" class="inline">
+            <a href="#team-<?php echo get_the_ID() ?>" class="modaal">
               <div class="main-info">
                 @php
                   $headshot = get_field('headshot');
@@ -76,7 +76,7 @@ Template Name: Our Team
                       <a href="<?php echo get_field('linkedin')?>" target="_blank"><?php echo get_field('linkedin')?></a>
                     </div>
                   @endif
-                  
+
                   <?php echo wpautop(get_field('bio')); ?>
                 </div>
               </div>

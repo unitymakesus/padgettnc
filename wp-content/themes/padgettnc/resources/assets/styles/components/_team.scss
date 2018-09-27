@@ -43,10 +43,14 @@
       position: absolute;
       top: 0;
       display: none;
+
+      &.keep-open {
+        display: block;
+      }
     }
 
     // Show hover pic
-    &:hover {
+    &:hover, &:focus, &:active {
       .hover-pic {
         display: block;
       }

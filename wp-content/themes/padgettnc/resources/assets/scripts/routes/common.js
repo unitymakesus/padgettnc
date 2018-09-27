@@ -70,6 +70,13 @@ export default {
     });
 
     // Initialzie Modaal
-    $('.inline').modaal();
+    $('.modaal').modaal({
+      before_open: function() {
+        $(event.path[0]).addClass('keep-open');
+      },
+      before_close: function() {
+        $('.modaal .hover-pic').removeClass('keep-open');
+      },
+    });
   },
 };

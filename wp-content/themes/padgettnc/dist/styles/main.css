@@ -12608,7 +12608,13 @@ footer .footer-copyright .privacy-wrapper {
   display: none;
 }
 
-.staff-member .main-info:hover .hover-pic {
+.staff-member .main-info .hover-pic.keep-open {
+  display: block;
+}
+
+.staff-member .main-info:hover .hover-pic,
+.staff-member .main-info:focus .hover-pic,
+.staff-member .main-info:active .hover-pic {
   display: block;
 }
 
