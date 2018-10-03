@@ -9,6 +9,11 @@ footer {
     justify-content: space-between;
     background: $color-white;
 
+    .simple-google-rating-badge {
+      margin: 2em;
+      min-width: 225px;
+    }
+
     .widget_media_image {
       flex-grow: 1;
       padding: 2em 0;
