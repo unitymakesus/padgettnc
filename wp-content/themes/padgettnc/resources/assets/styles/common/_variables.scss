@@ -41,6 +41,12 @@ $large-screen: 1200px;
   left: 0;
 }
 
+// Drop Shadow
+$drop-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+
+// Border Radius
+$rounded-corners: 5px;
+
 /** Gradients */
 // Utility mixin from Compass
 @mixin filter-gradient($start-color, $end-color, $orientation: vertical) {

@@ -10,7 +10,7 @@
   display: block;
   color: $color-black;
   padding: 20px;
-  box-shadow: 0 5px 35px rgba(0, 0, 0, 0.2);
+  box-shadow: $drop-shadow;
   border-radius: 10px;
   border-bottom: 3px solid white;
   transition: border 0.3s;

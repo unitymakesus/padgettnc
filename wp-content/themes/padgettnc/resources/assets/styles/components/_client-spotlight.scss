@@ -1,9 +1,11 @@
 // Homepage client spotlight
 .client-spotlight {
-  background: $color-blue;
+  background: #e3e9f1;
   padding: 6em 5em;
 
   &-card {
+    border-radius: $rounded-corners;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.5);
     padding: 30px;
     background: white;
 
