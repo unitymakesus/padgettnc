@@ -8,14 +8,28 @@
   p {
     font-size: 15px;
     margin-top: 5px;
+
+    @media #{$medium-and-down} {
+      font-size: 13px;
+    }
+    @media #{$small-and-down} {
+      font-size: 15px;
+    }
   }
 
   .ribbon {
     position: relative;
     background: $color-blue;
     font-size: 18px;
-    width: 70%;
+    width: 85%;
     margin: 0 auto;
+
+    @media #{$medium-and-down} {
+      font-size: 15px;
+    }
+    @media #{$small-and-down} {
+      font-size: 18px;
+    }
 
     &::before, &::after {
       content: "";
@@ -93,11 +107,25 @@
           position: absolute;
           border: 2px solid $color-white;
           border-radius: 10px;
+          height: 410px;
+          object-fit: cover;
+
+          @media #{$small-and-down} {
+            height: 500px;
+            width: 100%;
+          }
         }
 
         .hover-pic {
           position: absolute;
           display: none;
+          height: 410px;
+          object-fit: cover;
+
+          @media #{$small-and-down} {
+            height: 500px;
+            width: 100%;
+          }
         }
       }
     }
@@ -120,10 +148,9 @@
           margin: 0 auto;
 
           img {
-            transform: rotate(-45deg) scale(2);
+            transform: rotate(-45deg) scale(1.4);
             object-fit: cover;
             object-position: top;
-            padding-left: 10px;
           }
         }
 

@@ -38,6 +38,7 @@ Template Name: Our Team
                 @php
                   $headshot = get_field('headshot');
                   $headshot_alt = get_field('headshot_alt');
+                  $closeup = get_field('headshot_face_closeup');
                 @endphp
                 <div class="headshot-container">
                   <img class="headshot" src="{{ $headshot['sizes']['large'] }}" alt="{{ the_title() }}"/>
@@ -55,7 +56,7 @@ Template Name: Our Team
               <div class="cardside card-back">
                 <div class="cropped-container">
                   <div class="cropped-img">
-                    <img src="{{ $headshot['sizes']['medium'] }}" alt="{{ the_title() }}"/>
+                    <img src="{{ $closeup['sizes']['medium'] }}" alt="{{ the_title() }}"/>
                   </div>
                   <div class="logo-diamond lt"></div>
                   <div class="logo-diamond rt"></div>
