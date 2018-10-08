@@ -70,33 +70,47 @@ Template Name: Our Team
                 </div>
 
                 <div class="profile-info">
-                  <p><strong>Hometown: </strong><?php echo get_field('hometown'); ?></p>
-                  <p><strong>College: </strong><?php echo get_field('college'); ?></p>
-                  <p><strong>Degree: </strong><?php echo get_field('degree'); ?></p>
+                  @if(get_field('hometown'))
+                    <p><strong>Hometown: </strong><?php echo get_field('hometown'); ?></p>
+                  @endif
+                  @if(get_field('college'))
+                    <p><strong>College: </strong><?php echo get_field('college'); ?></p>
+                  @endif
+                  @if(get_field('degree'))
+                    <p><strong>Degree: </strong><?php echo get_field('degree');   ?></p>
+                  @endif
                   <hr>
 
-                  <?php if( have_rows('fun_facts') ):
-                    while ( have_rows('fun_facts') ) : the_row(); ?>
-                      <p><strong><?php echo the_sub_field('fact_title'); ?></strong> <?php echo the_sub_field('fact_text'); ?></p>
-                    <?php endwhile;
-                  endif ?>
+                  <?php
+                  	$repeater = get_field( 'fun_facts' );
+                  	$random_rows = array_rand( $repeater, 1 );
+                  	if( is_array( $random_rows ) ){
+                  		foreach( $random_rows as $random_row ){
+                  			echo '<p><strong>' . $repeater[$random_row]['fact_title'] . '</strong>';
+                  			echo ' ' . $repeater[$random_row]['fact_text'] . '</p>';
+                  		}
+                  	} else {
+                  		echo '<p><strong>' . $repeater[$random_rows]['fact_title'] . '</strong>';
+                  		echo ' ' . $repeater[$random_rows]['fact_text'] . '</p>';
+                  	}
+                  ?>
                 </div>
 
                 <div class="contact-info">
-                  <!-- @if(get_field('email')) -->
+                  @if(get_field('email'))
                     <div class="team-icons">
                       <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/email.png">
                       <a href="<?php echo get_field('email')?>" target="_blank">
                       <?php echo get_field('email')?></a>
                     </div>
-                  <!-- @endif -->
+                  @endif
 
-                  <!-- @if(get_field('phone')) -->
+                  @if(get_field('phone'))
                     <div class="team-icons">
                       <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/phone.png">
                       <a href="<?php echo get_field('phone')?>" target="_blank"><?php echo get_field('phone')?></a>
                     </div>
-                  <!-- @endif -->
+                  @endif
                 </div>
 
               </div>
