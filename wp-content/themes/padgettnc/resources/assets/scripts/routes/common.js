@@ -1,5 +1,9 @@
 export default {
   init() {
+    $('.staff-card-container').click(function(){
+      $(this).find('.staff-card').toggleClass('flipped');
+    })
+
     $(".nav-primary").sticky({topSpacing:0});
 
     $('.menu-main-menu-container .menu-item').each(function() {

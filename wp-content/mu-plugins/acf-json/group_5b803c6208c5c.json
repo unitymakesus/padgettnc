@@ -22,6 +22,43 @@
             "maxlength": ""
         },
         {
+            "key": "field_5bac360a624cb",
+            "label": "Email",
+            "name": "email",
+            "type": "email",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5bac3602624ca",
+            "label": "Phone",
+            "name": "phone",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_5b803de08fb7d",
             "label": "Headshot (regular)",
             "name": "headshot",
@@ -70,28 +107,9 @@
             "mime_types": ""
         },
         {
-            "key": "field_5b803e1b8fb7f",
-            "label": "Bio",
-            "name": "bio",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "maxlength": "",
-            "rows": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_5bac3602624ca",
-            "label": "Phone",
-            "name": "phone",
+            "key": "field_5bb76c3f68add",
+            "label": "College",
+            "name": "college",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -108,10 +126,10 @@
             "maxlength": ""
         },
         {
-            "key": "field_5bac360a624cb",
-            "label": "Email",
-            "name": "email",
-            "type": "email",
+            "key": "field_5bb76c3568adc",
+            "label": "Hometown",
+            "name": "hometown",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -123,13 +141,14 @@
             "default_value": "",
             "placeholder": "",
             "prepend": "",
-            "append": ""
+            "append": "",
+            "maxlength": ""
         },
         {
-            "key": "field_5bac3615624cc",
-            "label": "LinkedIn",
-            "name": "linkedin",
-            "type": "url",
+            "key": "field_5bb76c4668ade",
+            "label": "Degree",
+            "name": "degree",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -139,7 +158,69 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": ""
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5bb76c5568adf",
+            "label": "Fun Facts",
+            "name": "fun_facts",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_5bb76c7868ae0",
+                    "label": "Fact Title",
+                    "name": "fact_title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5bb76c7d68ae1",
+                    "label": "Fact Text",
+                    "name": "fact_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -161,5 +242,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1538012882
+    "modified": 1538757282
 }

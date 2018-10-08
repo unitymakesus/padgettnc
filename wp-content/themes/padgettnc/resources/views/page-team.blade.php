@@ -29,64 +29,82 @@ Template Name: Our Team
       <div class="row">
       @while ($staff->have_posts())
         @php $staff->the_post() @endphp
-          <div class="col m4 staff-member">
-            <a href="#team-<?php echo get_the_ID() ?>" class="modaal">
-              <div class="main-info">
+        <div class="col m4 s12">
+          <div class="staff-card-container">
+            <div class="staff-card">
+              <div class="cardside card-front">
+                <img class="diamondlogo" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/diamondlogo.png">
+
                 @php
                   $headshot = get_field('headshot');
                   $headshot_alt = get_field('headshot_alt');
                 @endphp
-                <img src="{{ $headshot['sizes']['large'] }}" alt="{{ the_title() }}"/>
-                <img class="hover-pic" src="{{ $headshot_alt['sizes']['large'] }}" alt=""/>
+                <div class="headshot-container">
+                  <img class="headshot" src="{{ $headshot['sizes']['large'] }}" alt="{{ the_title() }}"/>
+                  <img class="headshot hover-pic" src="{{ $headshot_alt['sizes']['large'] }}" alt=""/>
+                </div>
 
                 <div class="bioinfo">
-                  <h3>{{ the_title() }}</h3>
+                  <div class="ribbon">
+                    <span>{{ the_title() }}</span>
+                  </div>
                   <p><?php echo get_field('job_title')?></p>
                 </div>
               </div>
-            </a>
 
-            <div class="modal" id="team-<?php echo get_the_ID() ?>">
-              <div class="row">
-                <div class="col s12 m4">
-                  <img class="hover-pic" src="{{ $headshot_alt['sizes']['large'] }}" alt="{{ the_title() }}"/>
+              <div class="cardside card-back">
+                <div class="cropped-container">
+                  <div class="cropped-img">
+                    <img src="{{ $headshot['sizes']['medium'] }}" alt="{{ the_title() }}"/>
+                  </div>
+                  <div class="logo-diamond lt"></div>
+                  <div class="logo-diamond rt"></div>
                 </div>
-                <div class="col s12 m8">
-                  <h3>{{ the_title() }}</h3>
-                  <p class="job-title"><?php echo get_field('job_title'); ?></p>
 
-                  @if(get_field('email'))
+                <div class="bioinfo">
+                  <div class="ribbon">
+                    <span>{{ the_title() }}</span>
+                  </div>
+                  <p><?php echo get_field('job_title')?></p>
+                </div>
+
+                <div class="profile-info">
+                  <p><strong>Hometown: </strong><?php echo get_field('hometown'); ?></p>
+                  <p><strong>College: </strong><?php echo get_field('college'); ?></p>
+                  <p><strong>Degree: </strong><?php echo get_field('degree'); ?></p>
+                  <hr>
+
+                  <?php if( have_rows('fun_facts') ):
+                    while ( have_rows('fun_facts') ) : the_row(); ?>
+                      <p><strong><?php echo the_sub_field('fact_title'); ?></strong> <?php echo the_sub_field('fact_text'); ?></p>
+                    <?php endwhile;
+                  endif ?>
+                </div>
+
+                <div class="contact-info">
+                  <!-- @if(get_field('email')) -->
                     <div class="team-icons">
-                      <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/email.svg">
+                      <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/email.png">
                       <a href="<?php echo get_field('email')?>" target="_blank">
                       <?php echo get_field('email')?></a>
                     </div>
-                  @endif
+                  <!-- @endif -->
 
-                  @if(get_field('phone'))
+                  <!-- @if(get_field('phone')) -->
                     <div class="team-icons">
-                      <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/phone.svg">
+                      <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/phone.png">
                       <a href="<?php echo get_field('phone')?>" target="_blank"><?php echo get_field('phone')?></a>
                     </div>
-                  @endif
-
-                  @if(get_field('linkedin'))
-                    <div class="team-icons">
-                      <img class="icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-linkedin-black.svg">
-                      <a href="<?php echo get_field('linkedin')?>" target="_blank"><?php echo get_field('linkedin')?></a>
-                    </div>
-                  @endif
-
-                  <?php echo wpautop(get_field('bio')); ?>
+                  <!-- @endif -->
                 </div>
+
               </div>
             </div>
           </div>
+        </div>
       @endwhile
+      @endif
+      </div>
     </div>
-    @endif
-    </div>
-    @php wp_reset_postdata() @endphp
-  </div>
-
+  @php wp_reset_postdata() @endphp
 @endsection
