@@ -11,7 +11,21 @@
     padding-left: 0;
   }
 
-  li {
+  li:first-of-type {
+    list-style-type: none !important;
+
+    a {
+      color: white;
+      margin-right: 1em;
+      text-decoration: underline;
+
+      &:hover {
+        border-color: white;
+      }
+    }
+  }
+
+  li:not(:first-of-type) {
     list-style-type: none !important;
 
     a {

@@ -21,7 +21,7 @@
       @if (has_nav_menu('top_navigation'))
         {!! wp_nav_menu(['theme_location' => 'top_navigation']) !!}
       @endif
-      <a href="https://padgettnc.sharefile.com/" target="_blank" rel="noopener" class="btn btn-client btn-tertiary">Client Portal</a>
+      <a href="/get-started" target="_blank" rel="noopener" class="btn btn-client btn-tertiary">Get Started</a>
     </div>
   </div>
 </div>
