@@ -1,9 +1,17 @@
 nav, .menu-main-menu-container {
   background: rgba($color-blue, 0.4) !important;
+
+  .sub-menu {
+    top: 64px !important;
+  }
 }
 
 .is-sticky nav {
   background: $color-blue !important;
+
+  .sub-menu {
+    top: 50px !important;
+  }
 }
 
 .logo {

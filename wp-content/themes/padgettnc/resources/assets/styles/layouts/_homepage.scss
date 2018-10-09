@@ -88,12 +88,17 @@
     margin: 6em auto;
     text-align: center;
 
-    img {
-      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      object-position: center;
+    .profile-pic {
+      width: 125px;
+      height: 125px;
+      border-radius: 5px;
+      transform: rotate(45deg);
+      overflow: hidden;
+      margin: 0 auto;
+
+      img {
+        transform: rotate(-45deg) scale(1.8);
+      }
     }
 
     @media #{$medium-and-down} {

@@ -144,7 +144,9 @@
         <div class="row">
           <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
             <div class="col m4">
-              <img src="<?php echo get_field('profile_image')?>" alt="{{ the_title() }}"/>
+              <div class="profile-pic">
+                <img src="<?php echo get_field('profile_image')?>" alt="{{ the_title() }}"/>
+              </div>
               <h3>{{ the_title() }}</h3>
               <p><?php echo get_field('excerpt')?></p>
               <a href="<?php echo get_field('full_link')?>">Read More ></a>

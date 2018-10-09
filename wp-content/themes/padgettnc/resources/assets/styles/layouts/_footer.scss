@@ -24,12 +24,14 @@ footer {
       }
     }
 
-    @media #{$small-and-down} {
+    @media #{$medium-and-down} {
       padding: 1em 0;
+      flex-direction: column;
+      align-items: center;
 
       .widget_media_image {
         padding: 0 1em;
-        width: 75px;
+        width: auto;
       }
     }
   }
@@ -57,7 +59,7 @@ footer {
 
   // Copyright row
   .footer-copyright {
-    background: $color-blue-darker;
+    background: darken($color-blue, 10%);
     color: $color-white;
     padding: 10px 0;
 
