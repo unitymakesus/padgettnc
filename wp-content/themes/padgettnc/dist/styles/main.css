@@ -11871,12 +11871,8 @@ nav .sub-menu,
   }
 }
 
-.footer-contact li a {
-  top: 5px;
-  display: block;
-  height: 30px;
-  width: 30px;
-  margin: 0 7px;
+.footer-contact li a:hover {
+  border-color: #fff;
 }
 
 .footer-contact li a::before {

@@ -84,11 +84,9 @@
 .footer-contact {
   li {
     a {
-      top: 5px;
-      display: block;
-      height: 30px;
-      width: 30px;
-      margin: 0 7px;
+      &:hover {
+        border-color: $color-white;
+      }
 
       &::before {
         content: '';
