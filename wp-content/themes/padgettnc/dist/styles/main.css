@@ -11809,6 +11809,7 @@ nav .sub-menu,
   color: white;
   margin-right: 1em;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .menu-top-nav-container li:first-of-type a:hover {
