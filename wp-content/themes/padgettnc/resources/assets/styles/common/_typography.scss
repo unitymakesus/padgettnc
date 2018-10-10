@@ -49,6 +49,13 @@ a {
   }
 }
 
+ol {
+  font-family: $font-body;
+  font-size: $size-regular;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+
 ul {
   list-style-type: lower-roman;
 

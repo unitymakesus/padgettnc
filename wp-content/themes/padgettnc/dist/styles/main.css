@@ -11120,6 +11120,13 @@ a:active {
   border-color: #6fa417;
 }
 
+ol {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.17647rem;
+  font-weight: 300;
+  line-height: 1.5em;
+}
+
 ul {
   list-style-type: lower-roman;
 }
