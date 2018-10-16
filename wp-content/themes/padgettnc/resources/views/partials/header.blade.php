@@ -21,7 +21,7 @@
       @if (has_nav_menu('top_navigation'))
         {!! wp_nav_menu(['theme_location' => 'top_navigation']) !!}
       @endif
-      <a href="/get-started" rel="noopener" class="btn btn-client btn-tertiary">Get Started</a>
+      <a href="/get-started" rel="noopener" class="btn btn-tertiary">Get Started</a>
     </div>
   </div>
 </div>
