@@ -2,27 +2,43 @@ input {
   &:not([type]), &[type=text], &[type=password], &[type=email], &[type=url], &[type=time], &[type=date], &[type=datetime], &[type=datetime-local], &[type=tel], &[type=number], &[type=search] {
     &:not(.browser-default) {
       border: 1px solid $color-grey-medium;
+
+      &:focus:not([readonly]) {
+        border-bottom: 1px solid $color-green;
+        box-shadow: 0 1px 0 0 $color-green;
+      }
     }
   }
 }
 
 textarea.materialize-textarea {
   border: 1px solid $color-grey-medium;
+
+  &:focus:not([readonly]) {
+    border-bottom: 1px solid $color-green;
+    box-shadow: 0 1px 0 0 $color-green;
+  }
 }
 
 .input-field label {
   left: 5px;
-  color: $color-blue;
+  color: darken($color-grey-medium, 40%);
 }
 
 fieldset {
   border-color: $color-grey-medium;
 
   legend {
-    color: $color-blue;
+    color: darken($color-grey-medium, 40%);
   }
 
   label {
     font-size: 1rem;
+  }
+}
+
+.wpcf7-list-item {
+  input:checked + .wpcf7-list-item-label {
+    color: $color-green;
   }
 }

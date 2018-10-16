@@ -11466,13 +11466,36 @@ input[type=search]:not(.browser-default) {
   border: 1px solid #dedede;
 }
 
+input:not([type]):not(.browser-default):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=url]:not(.browser-default):focus:not([readonly]),
+input[type=time]:not(.browser-default):focus:not([readonly]),
+input[type=date]:not(.browser-default):focus:not([readonly]),
+input[type=datetime]:not(.browser-default):focus:not([readonly]),
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]),
+input[type=tel]:not(.browser-default):focus:not([readonly]),
+input[type=number]:not(.browser-default):focus:not([readonly]),
+input[type=search]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #6fa417;
+  -webkit-box-shadow: 0 1px 0 0 #6fa417;
+          box-shadow: 0 1px 0 0 #6fa417;
+}
+
 textarea.materialize-textarea {
   border: 1px solid #dedede;
 }
 
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #6fa417;
+  -webkit-box-shadow: 0 1px 0 0 #6fa417;
+          box-shadow: 0 1px 0 0 #6fa417;
+}
+
 .input-field label {
   left: 5px;
-  color: #004990;
+  color: #787878;
 }
 
 fieldset {
@@ -11480,11 +11503,15 @@ fieldset {
 }
 
 fieldset legend {
-  color: #004990;
+  color: #787878;
 }
 
 fieldset label {
   font-size: 1rem;
+}
+
+.wpcf7-list-item input:checked + .wpcf7-list-item-label {
+  color: #6fa417;
 }
 
 nav,
