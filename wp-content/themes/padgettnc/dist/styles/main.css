@@ -11451,6 +11451,42 @@ img {
   opacity: 0;
 }
 
+input:not([type]):not(.browser-default),
+input[type=text]:not(.browser-default),
+input[type=password]:not(.browser-default),
+input[type=email]:not(.browser-default),
+input[type=url]:not(.browser-default),
+input[type=time]:not(.browser-default),
+input[type=date]:not(.browser-default),
+input[type=datetime]:not(.browser-default),
+input[type=datetime-local]:not(.browser-default),
+input[type=tel]:not(.browser-default),
+input[type=number]:not(.browser-default),
+input[type=search]:not(.browser-default) {
+  border: 1px solid #dedede;
+}
+
+textarea.materialize-textarea {
+  border: 1px solid #dedede;
+}
+
+.input-field label {
+  left: 5px;
+  color: #004990;
+}
+
+fieldset {
+  border-color: #dedede;
+}
+
+fieldset legend {
+  color: #004990;
+}
+
+fieldset label {
+  font-size: 1rem;
+}
+
 nav,
 .menu-main-menu-container {
   background: rgba(0, 73, 144, 0.4) !important;
