@@ -144,7 +144,7 @@
         <div class="row">
           <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
             <div class="col m4">
-              <div class="profile-pic">
+              <div class="profile-pic z-depth-2">
                 <img src="<?php echo get_field('profile_image')?>" alt="{{ the_title() }}"/>
               </div>
               <h3>{{ the_title() }}</h3>
