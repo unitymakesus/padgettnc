@@ -149,7 +149,6 @@
               </div>
               <h3>{{ the_title() }}</h3>
               <p><?php echo get_field('excerpt')?></p>
-              <a href="<?php echo get_field('full_link')?>">Read More ></a>
             </div>
           <?php endwhile; wp_reset_postdata(); ?>
         </div>
