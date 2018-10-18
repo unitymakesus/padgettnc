@@ -8,6 +8,10 @@
   }
   @media #{$large-and-up} {
     width: 70%;
+
+    &-fixed {
+      max-width: 1350px;
+    }
   }
 }
 

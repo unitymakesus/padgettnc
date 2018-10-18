@@ -111,7 +111,7 @@
                     "delay": 0
                 },
                 {
-                    "key": "field_5babc583d2f71",
+                    "key": "field_5bacfc2af30f0",
                     "label": "Button Text",
                     "name": "button_text",
                     "type": "text",
@@ -130,10 +130,10 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5babc58bd2f72",
+                    "key": "field_5bacfc30f30f1",
                     "label": "Button Link",
                     "name": "button_link",
-                    "type": "url",
+                    "type": "link",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -142,8 +142,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": ""
+                    "return_format": "url"
                 }
             ]
         },
@@ -269,7 +268,7 @@
             "new_lines": ""
         },
         {
-            "key": "field_5b76df362d6d8",
+            "key": "field_5bc5f6cb6d649",
             "label": "Our Services",
             "name": "our_services",
             "type": "repeater",
@@ -285,10 +284,10 @@
             "min": 0,
             "max": 0,
             "layout": "table",
-            "button_label": "New Service",
+            "button_label": "",
             "sub_fields": [
                 {
-                    "key": "field_5b76ee30fff0c",
+                    "key": "field_5bc5f6dc6d64a",
                     "label": "Icon",
                     "name": "icon",
                     "type": "image",
@@ -312,7 +311,7 @@
                     "mime_types": ""
                 },
                 {
-                    "key": "field_5b76df4d2d6d9",
+                    "key": "field_5bc5f6e76d64b",
                     "label": "Title",
                     "name": "title",
                     "type": "text",
@@ -331,7 +330,7 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5b76df522d6da",
+                    "key": "field_5bc5f6ee6d64c",
                     "label": "Text",
                     "name": "text",
                     "type": "textarea",
@@ -350,7 +349,7 @@
                     "new_lines": ""
                 },
                 {
-                    "key": "field_5b76df5e2d6db",
+                    "key": "field_5bc5f6f66d64d",
                     "label": "CTA Link",
                     "name": "cta_link",
                     "type": "page_link",
@@ -362,10 +361,10 @@
                         "class": "",
                         "id": ""
                     },
-                    "post_type": [],
-                    "taxonomy": [],
+                    "post_type": "",
+                    "taxonomy": "",
                     "allow_null": 0,
-                    "allow_archives": 1,
+                    "allow_archives": 0,
                     "multiple": 0
                 }
             ]
@@ -405,10 +404,10 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_5b7ede9e31da4",
-                    "label": "CTA Link",
-                    "name": "cta_link",
-                    "type": "link",
+                    "key": "field_5bc888e7b7483",
+                    "label": "CTA GOT Image",
+                    "name": "cta_got_image",
+                    "type": "image",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -417,7 +416,16 @@
                         "class": "",
                         "id": ""
                     },
-                    "return_format": "url"
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
                 },
                 {
                     "key": "field_5b7edeaa31da5",
@@ -437,6 +445,21 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_5bbcf131f0d1a",
+                    "label": "CTA Link",
+                    "name": "cta_link",
+                    "type": "link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url"
                 },
                 {
                     "key": "field_5b7edeaf31da6",
@@ -487,5 +510,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1537986606
+    "modified": 1539868636
 }

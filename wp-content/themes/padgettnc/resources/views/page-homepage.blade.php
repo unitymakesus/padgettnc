@@ -15,7 +15,7 @@
 
     <div class="hero">
       <h1>{{$hero['header']}}
-        <span class="subheader">{{$hero['subheader']}}</span>
+        <span class="subheader">{!! $hero['subheader'] !!}</span>
       </h1>
     </div>
 
@@ -158,7 +158,8 @@
 
       @if(($cta))
       <div class="cta" style="background-image: url({!! $cta['image'] !!})">
-        <h2>{{ $cta['header'] }}</h2>
+        <img style="width: 400px; margin-bottom: 1em;" src="{{ $cta['cta_got_image'] }}" alt="Profit is coming"/>
+        <!-- <h2>{{ $cta['header'] }}</h2> -->
         <a class="btn btn-primary" href="{!! $cta['cta_link'] !!}">{{ $cta['cta_text'] }}</a>
       </div>
       @endif

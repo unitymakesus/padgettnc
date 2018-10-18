@@ -25,7 +25,7 @@ Template Name: Our Team
     ?>
 
     @if ($staff->have_posts())
-    <div class="container">
+    <div class="container container-fixed">
       <div class="row">
       @while ($staff->have_posts())
         @php $staff->the_post() @endphp
