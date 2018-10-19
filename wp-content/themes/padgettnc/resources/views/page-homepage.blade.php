@@ -30,7 +30,7 @@
       <h2>{{ $why['header'] }}</h2>
       <p>{!! $why['text'] !!}</p>
       @if(!empty($why['button_text']))
-        <a class="btn btn-primary" href="{{ $why['button_link'] }}">{{ $why['button_text'] }}</a>
+        <a class="btn btn-getstarted" href="{{ $why['button_link'] }}">{{ $why['button_text'] }}</a>
       @endif
     @endif
   </div>
@@ -160,7 +160,7 @@
       <div class="cta" style="background-image: url({!! $cta['image'] !!})">
         <img style="width: 400px; margin-bottom: 1em;" src="{{ $cta['cta_got_image'] }}" alt="Profit is coming"/>
         <!-- <h2>{{ $cta['header'] }}</h2> -->
-        <a class="btn btn-primary" href="{!! $cta['cta_link'] !!}">{{ $cta['cta_text'] }}</a>
+        <a class="btn btn-getstarted" href="{!! $cta['cta_link'] !!}">{{ $cta['cta_text'] }}</a>
       </div>
       @endif
 @endsection

@@ -73,7 +73,7 @@
     }
   }
 
-  // Tertiary styles
+  // Tertiary invert styles
   &-tertiaryInvert {
     color: $color-blue;
 
@@ -96,6 +96,42 @@
       &::after {
         opacity: 0;
       }
+    }
+  }
+
+  // Get Started styles
+  &-getstarted {
+    color: $color-white;
+    border-color: $color-green;
+    background: $color-green;
+
+    &::after {
+      background-image: url('../images/chartarrow.svg');
+    }
+
+    &:hover, &:focus, &:active {
+      color: $color-green;
+      background: $color-white;
+      border-color: $color-white;
+
+      &::after {
+        transition: opacity 0.3s;
+        background-image: url('../images/chartarrow.svg');
+      }
+    }
+  }
+}
+
+.bb-cta-button {
+  .fl-button {
+    padding: 10px 30px !important;
+    font-size: $size-regular;
+    font-family: $font-headers;
+    border-color: $color-green;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      border: 2px solid $color-white !important;
     }
   }
 }
