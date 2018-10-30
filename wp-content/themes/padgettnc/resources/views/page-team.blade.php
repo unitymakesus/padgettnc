@@ -29,7 +29,7 @@ Template Name: Our Team
       <div class="row">
       @while ($staff->have_posts())
         @php $staff->the_post() @endphp
-        <div class="col m4 s12">
+        <div class="col xl4 l6 m6 s12">
           <div class="staff-card-container">
             <div class="staff-card">
               <div class="cardside card-front">

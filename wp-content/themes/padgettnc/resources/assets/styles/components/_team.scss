@@ -184,10 +184,16 @@
       }
 
       .profile-info {
+        height: 200px;
+        overflow: auto;
         position: relative;
         bottom: 20px;
         background: $color-white;
         border-radius: 5px;
+
+        @media #{$small-and-down} {
+          height: 275px;
+        }
 
         p {
           font-size: 16px;

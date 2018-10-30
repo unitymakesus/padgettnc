@@ -17,6 +17,8 @@
       <h1>{{$hero['header']}}
         <span class="subheader">{!! $hero['subheader'] !!}</span>
       </h1>
+
+      <a class="btn btn-getstarted" href="{!! $cta['cta_link'] !!}">{{ $cta['cta_text'] }}</a>
     </div>
 
   </header>
@@ -156,6 +158,12 @@
         <a class="btn btn-tertiary" href="https://goo.gl/ZSFTqD" target="_blank">See all Google Reviews</a>
       </div>
 
+      @if(get_field("video_url"))
+      <div class="video-temp">
+        <?php the_field("video_url") ?>
+      </div>
+      @endif
+
       @if(($cta))
       <div class="cta" style="background-image: url({!! $cta['image'] !!})">
         <img style="width: 400px; margin-bottom: 1em;" src="{{ $cta['cta_got_image'] }}" alt="Profit is coming"/>
@@ -163,4 +171,5 @@
         <a class="btn btn-getstarted" href="{!! $cta['cta_link'] !!}">{{ $cta['cta_text'] }}</a>
       </div>
       @endif
+
 @endsection
