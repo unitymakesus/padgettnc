@@ -1,13 +1,14 @@
-.video-temp iframe {
-  display: block;
-  margin: 0 auto;
+.video-temp {
+  background: #e3e9f1;
+  padding: 4em 0 1em 0;
+
+  iframe {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 .home {
-  .topnav-wrapper .btn {
-    display: none;
-  }
-
   h1 {
     color: $color-white;
   }
