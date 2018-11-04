@@ -11313,11 +11313,12 @@ img {
 
 .btn,
 .btn-large {
-  margin: 10px 0;
   background: #fff;
-  height: 45px;
-  line-height: 43px;
-  font-size: 1.17647rem;
+  margin: 10px 0;
+  padding: 12px 40px 10px;
+  line-height: 1;
+  height: auto;
+  font-size: 1.52941rem;
   font-family: "Hind", sans-serif;
   position: relative;
   -webkit-transition: all 0.3s;
@@ -11334,8 +11335,8 @@ img {
   opacity: 0;
   width: 21px;
   height: 21px;
-  top: 9px;
-  right: 5px;
+  top: 10px;
+  right: 8px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -11380,6 +11381,7 @@ img {
 .btn-primary:hover::after,
 .btn-primary:focus::after,
 .btn-primary:active::after {
+  top: 12px;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KICAgIDxwYXRoIGZpbGw9IiM2ZmE0MTciIGQ9Ik0xMiA0bC0xLjQxIDEuNDFMMTYuMTcgMTFINHYyaDEyLjE3bC01LjU4IDUuNTlMMTIgMjBsOC04eiIvPgo8L3N2Zz4K);
 }
 
@@ -11603,6 +11605,7 @@ nav,
 
 .header-homepage .nav-top {
   padding-top: 2em;
+  z-index: 2;
 }
 
 @media only screen and (max-width: 992px) {
@@ -12344,6 +12347,10 @@ footer .footer-copyright .privacy-wrapper {
   padding-top: 2em;
 }
 
+.client-spotlight-card .company-logo a {
+  border: none;
+}
+
 @media only screen and (max-width: 992px) {
   .client-spotlight {
     padding: 6em 0;
@@ -12647,6 +12654,10 @@ footer .footer-copyright .privacy-wrapper {
 
 .diamond-service.active .hover-icon {
   opacity: 1;
+}
+
+.diamond-service:focus {
+  outline: none;
 }
 
 .our-services-mobile {
@@ -13036,6 +13047,10 @@ footer .footer-copyright .privacy-wrapper {
   padding: 5em 0;
   padding-top: 3em;
   text-align: center;
+}
+
+.home .why-padgett p {
+  font-size: 1.4em;
 }
 
 .home .our-values .row {

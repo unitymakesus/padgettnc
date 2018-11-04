@@ -1,10 +1,11 @@
 // Main Button Styling
 .btn {
-  margin: 10px 0;
   background: $color-white;
-  height: 45px;
-  line-height: 43px;
-  font-size: $size-regular;
+  margin: 10px 0;
+  padding: 12px 40px 10px;
+  line-height: 1;
+  height: auto;
+  font-size: $size-regularmedium;
   font-family: $font-headers;
   position: relative;
   transition: all 0.3s;
@@ -18,8 +19,8 @@
     opacity: 0;
     width: 21px;
     height: 21px;
-    top: 9px;
-    right: 5px;
+    top: 10px;
+    right: 8px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -47,6 +48,7 @@
       border-color: $color-white;
 
       &::after {
+        top: 12px;
         background-image: url('../images/icon-arrow-green.svg');
       }
     }

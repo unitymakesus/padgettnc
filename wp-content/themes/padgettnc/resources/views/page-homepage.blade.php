@@ -127,13 +127,12 @@
           <h2>Client Spotlight</h2>
           <div class="row">
             <div class="col l6 m12 company-logo">
-              <a href="<?php echo get_field('site-link')?>" target="_blank">
+              <a href="<?php the_permalink() ?>" target="_blank">
                 <?php if (has_post_thumbnail()) the_post_thumbnail( 'medium' ); ?>
               </a>
             </div>
             <div class="col l6 m12">
               <p><?php the_excerpt(); ?></p>
-
               <a class="btn btn-secondary" href="<?php the_permalink() ?>">Read More</a>
             </div>
           </div>
@@ -154,7 +153,6 @@
             </div>
           <?php endwhile; wp_reset_postdata(); ?>
         </div>
-        <br><br>
         <a class="btn btn-tertiary" href="https://goo.gl/ZSFTqD" target="_blank">See all Google Reviews</a>
       </div>
 

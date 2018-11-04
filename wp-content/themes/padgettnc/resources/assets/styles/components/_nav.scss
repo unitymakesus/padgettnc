@@ -35,6 +35,7 @@ nav, .menu-main-menu-container {
 
 .header-homepage .nav-top {
   padding-top: 2em;
+  z-index: 2;
 
   @media #{$medium-and-down} {
     padding-top: 4.4em;
