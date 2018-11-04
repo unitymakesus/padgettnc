@@ -12,6 +12,7 @@ import common from './routes/common';
 import home from './routes/home';
 import aboutUs from './routes/about';
 import archive from './routes/archive';
+import pageTeam from './routes/team';
 
 var WebFont = require('webfontloader');
 
@@ -27,6 +28,7 @@ const routes = new Router({
   home,
   aboutUs,
   archive,
+  pageTeam,
 });
 
 // Load Events

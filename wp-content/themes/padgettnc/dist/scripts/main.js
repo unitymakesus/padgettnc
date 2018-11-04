@@ -87,7 +87,7 @@ for(var t=1;t<arguments.length;t++){var n=arguments$1[t];for(var i in n){ Object
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(3);
-module.exports = __webpack_require__(14);
+module.exports = __webpack_require__(15);
 
 
 /***/ }),
@@ -109,6 +109,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__routes_home__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__routes_about__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__routes_archive__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__routes_team__ = __webpack_require__(13);
 // import external dependencies
 
 // import 'materialize-css';
@@ -124,7 +125,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var WebFont = __webpack_require__(13);
+
+var WebFont = __webpack_require__(14);
 
 WebFont.load({
  google: {
@@ -138,6 +140,7 @@ var routes = new __WEBPACK_IMPORTED_MODULE_4__util_Router__["a" /* default */]({
   home: __WEBPACK_IMPORTED_MODULE_6__routes_home__["a" /* default */],
   aboutUs: __WEBPACK_IMPORTED_MODULE_7__routes_about__["a" /* default */],
   archive: __WEBPACK_IMPORTED_MODULE_8__routes_archive__["a" /* default */],
+  pageTeam: __WEBPACK_IMPORTED_MODULE_9__routes_team__["a" /* default */],
 });
 
 // Load Events
@@ -1929,10 +1932,6 @@ Router.prototype.loadEvents = function loadEvents () {
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {/* harmony default export */ __webpack_exports__["a"] = ({
   init: function init() {
-    $('.staff-card-container').click(function(){
-      $(this).find('.staff-card').toggleClass('flipped');
-    })
-
     $(".nav-primary").sticky({topSpacing:0});
 
     $('.menu-main-menu-container .menu-item').each(function() {
@@ -2135,6 +2134,23 @@ Router.prototype.loadEvents = function loadEvents () {
 
 /***/ }),
 /* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function($) {/* harmony default export */ __webpack_exports__["a"] = ({
+  init: function init() {
+    $('.staff-card-container').click(function(){
+      $(this).toggleClass('flipped');
+    })
+  },
+  finalize: function finalize() {
+  },
+});
+
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_RESULT__;/* Web Font Loader v1.6.28 - (c) Adobe Systems, Google. License: Apache 2.0 */(function(){function aa(a,b,c){return a.call.apply(a.bind,arguments)}function ba(a,b,c){if(!a)throw Error();if(2<arguments.length){var d=Array.prototype.slice.call(arguments,2);return function(){var c=Array.prototype.slice.call(arguments);Array.prototype.unshift.apply(c,d);return a.apply(b,c)}}return function(){return a.apply(b,arguments)}}function p(a,b,c){p=Function.prototype.bind&&-1!=Function.prototype.bind.toString().indexOf("native code")?aa:ba;return p.apply(null,arguments)}var q=Date.now||function(){return+new Date};function ca(a,b){this.a=a;this.o=b||a;this.c=this.o.document}var da=!!window.FontFace;function t(a,b,c,d){b=a.c.createElement(b);if(c)for(var e in c)c.hasOwnProperty(e)&&("style"==e?b.style.cssText=c[e]:b.setAttribute(e,c[e]));d&&b.appendChild(a.c.createTextNode(d));return b}function u(a,b,c){a=a.c.getElementsByTagName(b)[0];a||(a=document.documentElement);a.insertBefore(c,a.lastChild)}function v(a){a.parentNode&&a.parentNode.removeChild(a)}
@@ -2158,7 +2174,7 @@ g,0<d.length&&(d=za[d[0]])&&(a.c[e]=d))}a.c[e]||(d=za[e])&&(a.c[e]=d);for(d=0;d<
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -11164,6 +11164,7 @@ b {
 
   .container-fixed {
     max-width: 1350px;
+    margin: 0 auto;
   }
 }
 
@@ -12686,122 +12687,81 @@ footer .footer-copyright .privacy-wrapper {
   background: #6fa417;
 }
 
-.bioinfo {
-  position: absolute;
-  left: 0;
-  text-align: center;
-  color: #fff;
-  width: 100%;
-}
-
-.bioinfo p {
-  font-size: 15px;
-  margin-top: 5px;
-}
-
-@media only screen and (max-width: 992px) {
-  .bioinfo p {
-    font-size: 13px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .bioinfo p {
-    font-size: 15px;
-  }
-}
-
-.bioinfo .ribbon {
-  position: relative;
-  background: #004990;
-  font-size: 18px;
-  width: 85%;
-  margin: 0 auto;
-}
-
-@media only screen and (max-width: 992px) {
-  .bioinfo .ribbon {
-    font-size: 15px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .bioinfo .ribbon {
-    font-size: 18px;
-  }
-}
-
-.bioinfo .ribbon::before,
-.bioinfo .ribbon::after {
-  content: "";
-  position: absolute;
-  display: block;
-  border: 0.75em solid #004990;
-}
-
-.bioinfo .ribbon::before {
-  left: -1em;
-  bottom: 0;
-  border-left-color: transparent;
-}
-
-.bioinfo .ribbon::after {
-  right: -1em;
-  bottom: 0;
-  border-right-color: transparent;
-}
-
-.flipped {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-}
-
 .staff-card-container {
   position: relative;
   -webkit-perspective: 1000px;
           perspective: 1000px;
-  height: 475px;
-  width: 100%;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
   margin-top: 2em;
 }
 
+.staff-card-container,
+.staff-card-container .card-front,
+.staff-card-container .card-back {
+  width: 100%;
+  height: 475px;
+}
+
 @media only screen and (max-width: 600px) {
-  .staff-card-container {
+  .staff-card-container,
+  .staff-card-container .card-front,
+  .staff-card-container .card-back {
     height: 550px;
   }
 }
 
+.staff-card-container.flipped .staff-card .card-front {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.staff-card-container.flipped .staff-card .card-back {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+}
+
 .staff-card-container .staff-card {
-  background: #6fa417;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  -webkit-transition: -webkit-transform 1s;
-  transition: -webkit-transform 1s;
-  -o-transition: -o-transform 1s;
-  transition: transform 1s;
-  transition: transform 1s, -webkit-transform 1s, -o-transform 1s;
+  position: relative;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
 }
 
-.staff-card-container .staff-card .cardside {
-  display: block;
-  height: 100%;
-  width: 100%;
+.staff-card-container .staff-card .card-front,
+.staff-card-container .staff-card .card-back {
+  background: #6fa417;
   position: absolute;
+  left: 0;
   top: 0;
-  padding: 20px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: 0.6s;
+  -o-transition: 0.6s;
+  transition: 0.6s;
+}
+
+.staff-card-container .staff-card .card-front .card-side-container,
+.staff-card-container .staff-card .card-back .card-side-container {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
 }
 
 .staff-card-container .staff-card .card-front {
-  position: relative;
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  /* transform: rotateY(0deg); */
 }
 
 .staff-card-container .staff-card .card-front .bioinfo {
-  bottom: -7px;
+  bottom: -20px;
+  left: 0;
+  position: absolute;
 }
 
 .staff-card-container .staff-card .card-front .diamondlogo {
@@ -12851,14 +12811,22 @@ footer .footer-copyright .privacy-wrapper {
 }
 
 .staff-card-container .staff-card .card-back {
-  -webkit-transform: rotateY(180deg);
-          transform: rotateY(180deg);
-  background: #6fa417;
-  z-index: 5;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.staff-card-container .staff-card .card-back .license {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.8em;
+  color: #fff;
 }
 
 .staff-card-container .staff-card .card-back .cropped-container {
-  padding: 10px;
+  padding: 10px 0 0;
+  position: relative;
+  height: 100px;
 }
 
 .staff-card-container .staff-card .card-back .cropped-container .cropped-img {
@@ -12866,11 +12834,11 @@ footer .footer-copyright .privacy-wrapper {
   height: 90px;
   border: 2px solid white;
   border-radius: 5px;
-  -webkit-transform: rotate(45deg);
-       -o-transform: rotate(45deg);
-          transform: rotate(45deg);
+  -webkit-transform: translate3d(-50%, 0, 0) rotate(45deg);
+          transform: translate3d(-50%, 0, 0) rotate(45deg);
   overflow: hidden;
-  margin: 0 auto;
+  left: 50%;
+  position: absolute;
 }
 
 .staff-card-container .staff-card .card-back .cropped-container .cropped-img img {
@@ -12881,6 +12849,7 @@ footer .footer-copyright .privacy-wrapper {
      object-fit: cover;
   -o-object-position: top;
      object-position: top;
+  display: block;
 }
 
 .staff-card-container .staff-card .card-back .cropped-container .logo-diamond {
@@ -12894,27 +12863,21 @@ footer .footer-copyright .privacy-wrapper {
           transform: rotate(45deg);
   position: absolute;
   z-index: -5;
-  top: 30px;
+  top: 10px;
 }
 
 .staff-card-container .staff-card .card-back .cropped-container .lt {
-  left: 85px;
+  left: calc(50% - 20px);
 }
 
 .staff-card-container .staff-card .card-back .cropped-container .rt {
-  right: 85px;
-}
-
-.staff-card-container .staff-card .card-back .bioinfo {
-  top: -20px;
-  position: relative;
+  right: calc(50% - 20px);
 }
 
 .staff-card-container .staff-card .card-back .profile-info {
-  height: 200px;
+  height: 230px;
   overflow: auto;
   position: relative;
-  bottom: 20px;
   background: #fff;
   border-radius: 5px;
 }
@@ -12938,35 +12901,94 @@ footer .footer-copyright .privacy-wrapper {
 }
 
 .staff-card-container .staff-card .card-back .contact-info {
-  margin: 0 auto;
   position: relative;
-  bottom: 10px;
-  width: 60%;
+  margin: 10px 20% 0;
 }
 
 .staff-card-container .staff-card .card-back .contact-info .team-icons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 5px;
+  white-space: nowrap;
 }
 
 .staff-card-container .staff-card .card-back .contact-info .team-icons .icon {
   width: 20px;
   height: 20px;
-  margin-right: 5px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .staff-card-container .staff-card .card-back .contact-info .team-icons a {
+  display: inline-block;
   border: none;
   color: #fff;
 }
 
-.staff-card-container .staff-card .card-back .contact-info .team-icons a:hover {
-  border: none;
+.staff-card-container .staff-card .card-back .contact-info .team-icons a:hover,
+.staff-card-container .staff-card .card-back .contact-info .team-icons a:active,
+.staff-card-container .staff-card .card-back .contact-info .team-icons a:focus {
+  text-decoration: underline;
+}
+
+.staff-card-container .staff-card .bioinfo {
+  text-align: center;
+  color: #fff;
+  width: 100%;
+}
+
+.staff-card-container .staff-card .bioinfo p {
+  font-size: 15px;
+  margin: 5px 0;
+}
+
+@media only screen and (max-width: 992px) {
+  .staff-card-container .staff-card .bioinfo p {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .staff-card-container .staff-card .bioinfo p {
+    font-size: 15px;
+  }
+}
+
+.staff-card-container .staff-card .bioinfo .ribbon {
+  position: relative;
+  background: #004990;
+  font-size: 18px;
+  width: 85%;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 992px) {
+  .staff-card-container .staff-card .bioinfo .ribbon {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .staff-card-container .staff-card .bioinfo .ribbon {
+    font-size: 18px;
+  }
+}
+
+.staff-card-container .staff-card .bioinfo .ribbon::before,
+.staff-card-container .staff-card .bioinfo .ribbon::after {
+  content: "";
+  position: absolute;
+  display: block;
+  border: 0.75em solid #004990;
+}
+
+.staff-card-container .staff-card .bioinfo .ribbon::before {
+  left: -1em;
+  bottom: 0;
+  border-left-color: transparent;
+}
+
+.staff-card-container .staff-card .bioinfo .ribbon::after {
+  right: -1em;
+  bottom: 0;
+  border-right-color: transparent;
 }
 
 .staff-card-container .staff-card:hover .headshot-container .hover-pic,
