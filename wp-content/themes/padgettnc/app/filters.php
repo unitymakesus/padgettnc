@@ -29,9 +29,9 @@ add_filter('body_class', function (array $classes) {
 /**
  * Add "…" to the excerpt
  */
-add_filter('excerpt_more', function () {
-    return ' &hellip;';
-});
+// add_filter('excerpt_more', function () {
+//     return ' &hellip;';
+// });
 
 /**
  * Template Hierarchy should search for .blade.php files

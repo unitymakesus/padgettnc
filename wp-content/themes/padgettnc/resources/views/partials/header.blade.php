@@ -16,7 +16,7 @@
         @endif
       </a>
   </div>
-  <div class="col s6 l3 offset-l6">
+  <div class="col s6 l9">
     <div class="topnav-wrapper">
       @if (has_nav_menu('top_navigation'))
         {!! wp_nav_menu(['theme_location' => 'top_navigation']) !!}

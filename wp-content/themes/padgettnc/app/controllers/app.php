@@ -19,8 +19,11 @@ class App extends Controller
             }
             return __('Latest Posts', 'sage');
         }
-        if (is_archive('client-spotlight')) {
+        if (is_category('client-spotlight')) {
             return __('Client Spotlights', 'sage');
+        }
+        if (is_category('blog')) {
+            return __('Blog', 'sage');
         }
         if (is_archive()) {
             return get_the_archive_title();

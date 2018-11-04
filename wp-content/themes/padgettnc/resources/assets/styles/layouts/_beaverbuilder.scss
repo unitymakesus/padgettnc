@@ -11,4 +11,14 @@
 .fl-accordion-item {
   background: $color-blue;
   color: $color-white;
+  font-size: 1.2em;
+}
+
+.fl-accordion-content {
+  background: $color-grey-medium;
+  color: $color-blue-darker;
+
+  a {
+    color: $color-blue;
+  }
 }

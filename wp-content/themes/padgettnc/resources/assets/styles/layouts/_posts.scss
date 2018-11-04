@@ -1,24 +1,38 @@
 // Archive
-.posts {
-  display: flex;
-  flex-wrap: wrap;
-}
+// .posts {
+//   display: flex;
+//   flex-wrap: wrap;
+// }
 
 .post-container {
-  margin-top: 2em;
   text-align: center;
-  display: block;
-  color: $color-black;
-  padding: 20px;
   box-shadow: $drop-shadow;
   border-radius: 10px;
-  border-bottom: 3px solid white;
-  transition: border 0.3s;
+  margin-bottom: 20px;
+  padding: 20px;
+  overflow: hidden;
 
-  img {
-    padding-top: 10px;
-    max-height: 100px;
-    width: auto;
+  .img-wrapper {
+    height: 100px;
+
+    img {
+      padding-top: 10px;
+      max-height: 100px;
+      width: auto;
+    }
+  }
+
+  img.full-width {
+    position: relative;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    max-width: calc(100% + 40px);
+  }
+
+  .post-title {
+    margin-top: 0;
+    font-size: $size-regularmedium;
   }
 }
 

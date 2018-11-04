@@ -45,15 +45,11 @@ nav, .menu-main-menu-container {
 }
 
 .topnav-wrapper {
-  width: 80%;
-
   .btn {
     float: right;
   }
 
   @media #{$medium-and-down} {
-    width: 100%;
-
     .btn {
       padding: 0;
       width: 100%;
