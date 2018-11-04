@@ -8,9 +8,7 @@
         {{ get_the_title() }}
       </h1>
     </div>
-    <a href="<?php echo get_field('site-link')?>">
-      <?php if (has_post_thumbnail()) the_post_thumbnail( 'medium' ); ?>
-    </a>
+    <?php if (has_post_thumbnail()) the_post_thumbnail( 'medium' ); ?>
   </header>
   <div class="entry-content">
     @php the_content() @endphp

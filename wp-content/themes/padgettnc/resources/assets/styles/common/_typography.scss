@@ -59,6 +59,9 @@ ol {
 
 ul {
   list-style-type: lower-roman;
+  font-family: $font-body;
+  font-size: $size-regular;
+  font-weight: 300;
 
   &:not(.browser-default) {
     padding-left: 30px;
