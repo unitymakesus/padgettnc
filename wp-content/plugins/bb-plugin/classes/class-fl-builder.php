@@ -62,7 +62,7 @@ final class FLBuilder {
 	 * @since 2.1
 	 */
 	static public $fa4_url = 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css';
-	static public $fa5_pro_url = 'https://pro.fontawesome.com/releases/v5.3.1/css/all.css';
+	static public $fa5_pro_url = 'https://pro.fontawesome.com/releases/v5.4.2/css/all.css';
 
 	/**
 	 * Initializes hooks.
@@ -380,8 +380,8 @@ final class FLBuilder {
 		// Register additional CSS
 		wp_register_style( 'fl-slideshow',           $css_url . 'fl-slideshow.css', array( 'yui3' ), $ver );
 		wp_register_style( 'jquery-bxslider',        $css_url . 'jquery.bxslider.css', array(), $ver );
-		wp_register_style( 'jquery-magnificpopup',   $css_url . 'jquery.magnificpopup.css', array(), $ver );
-		wp_register_style( 'yui3',           		 $css_url . 'yui3.css', array(), $ver );
+		wp_register_style( 'jquery-magnificpopup',   $css_url . 'jquery.magnificpopup' . $min . '.css', array(), $ver );
+		wp_register_style( 'yui3',                   $css_url . 'yui3.css', array(), $ver );
 
 		// Register icon CDN CSS
 		wp_register_style( 'font-awesome',           self::$fa4_url, array(), $ver );
@@ -394,16 +394,16 @@ final class FLBuilder {
 		wp_register_script( 'jquery-bxslider',       $js_url . 'jquery.bxslider.js', array( 'jquery-easing', 'jquery-fitvids' ), $ver, true );
 		wp_register_script( 'jquery-easing',         $js_url . 'jquery.easing.min.js', array( 'jquery' ), '1.4', true );
 		wp_register_script( 'jquery-fitvids',        $js_url . 'jquery.fitvids.min.js', array( 'jquery' ), '1.2', true );
-		wp_register_script( 'jquery-imagesloaded',   $js_url . 'jquery.imagesloaded.min.js', array( 'jquery' ), $ver, true );
 		wp_register_script( 'jquery-infinitescroll', $js_url . 'jquery.infinitescroll.min.js', array( 'jquery' ), $ver, true );
 		wp_register_script( 'jquery-magnificpopup',  $js_url . 'jquery.magnificpopup.min.js', array( 'jquery' ), $ver, true );
 		wp_register_script( 'jquery-mosaicflow',     $js_url . 'jquery.mosaicflow.min.js', array( 'jquery' ), $ver, true );
 		wp_register_script( 'jquery-waypoints',      $js_url . 'jquery.waypoints.min.js', array( 'jquery' ), $ver, true );
 		wp_register_script( 'jquery-wookmark',       $js_url . 'jquery.wookmark.min.js', array( 'jquery' ), $ver, true );
 		wp_register_script( 'yui3',                  $js_url . 'yui3.min.js', array(), $ver, true );
-
 		wp_register_script( 'youtube-player',        'https://www.youtube.com/iframe_api', array(), $ver, true );
 		wp_register_script( 'vimeo-player',          'https://player.vimeo.com/api/player.js', array(), $ver, true );
+		wp_deregister_script( 'imagesloaded' );
+		wp_register_script( 'imagesloaded', includes_url( 'js/imagesloaded.min.js' ), array( 'jquery' ) );
 	}
 
 	/**
@@ -464,10 +464,10 @@ final class FLBuilder {
 				if ( 'slideshow' == $row->settings->bg_type ) {
 					wp_enqueue_script( 'yui3' );
 					wp_enqueue_script( 'fl-slideshow' );
-					wp_enqueue_script( 'jquery-imagesloaded' );
+					wp_enqueue_script( 'imagesloaded' );
 					wp_enqueue_style( 'fl-slideshow' );
 				} elseif ( 'video' == $row->settings->bg_type ) {
-					wp_enqueue_script( 'jquery-imagesloaded' );
+					wp_enqueue_script( 'imagesloaded' );
 					if ( 'video_service' == $row->settings->bg_video_source ) {
 
 						$video_data = FLBuilderUtils::get_video_data( $row->settings->bg_video_service_url );
@@ -2292,7 +2292,8 @@ final class FLBuilder {
 	 * @return void
 	 */
 	static public function render_custom_css_for_editing() {
-		if ( ! FLBuilderModel::is_builder_active() ) {
+
+		if ( ! FLBuilderModel::is_builder_active() && ! isset( $_GET['fl_builder_preview'] ) ) {
 			return;
 		}
 
@@ -2536,7 +2537,9 @@ final class FLBuilder {
 		}
 
 		// Default page heading
-		if ( FLBuilderModel::is_builder_enabled() ) {
+		global $post;
+		$post_id = isset( $post->ID ) ? $post->ID : false;
+		if ( FLBuilderModel::is_builder_enabled( $post_id ) ) {
 			if ( ! $global_settings->show_default_heading && ! empty( $global_settings->default_heading_selector ) ) {
 				$heading_selector = esc_attr( $global_settings->default_heading_selector );
 

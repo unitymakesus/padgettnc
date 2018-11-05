@@ -38,6 +38,12 @@ fieldset {
 }
 
 .wpcf7-list-item {
+  margin: 5px 0;
+
+  input {
+    margin-right: 5px;
+  }
+
   input:checked + .wpcf7-list-item-label {
     color: $color-green;
   }

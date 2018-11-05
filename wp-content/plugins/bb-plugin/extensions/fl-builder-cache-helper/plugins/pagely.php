@@ -2,9 +2,13 @@
 namespace FLCacheClear;
 class Pagely {
 
+	var $name = 'Pagely Hosting';
+	var $url  = 'https://pagely.com/plans-pricing/';
+
 	static function run() {
 		if ( class_exists( '\PagelyCachePurge' ) ) {
-			\PagelyCachePurge::purgeAll();
+			$purger = new \PagelyCachePurge();
+			$purger->purgeAll();
 		}
 	}
 }
