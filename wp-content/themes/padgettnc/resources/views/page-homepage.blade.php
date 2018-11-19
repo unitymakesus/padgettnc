@@ -158,7 +158,9 @@
 
       @if(get_field("video_url"))
       <div class="video-temp">
-        <?php the_field("video_url") ?>
+        <div class="video-wrapper">
+          <?php the_field("video_url") ?>
+        </div>
       </div>
       @endif
 
