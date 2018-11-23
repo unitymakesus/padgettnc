@@ -37,6 +37,14 @@
   p {
     font-size: $size-small;
   }
+
+  .btn {
+    font-size: 15px;
+
+    &::after {
+      top: 7px;
+    }
+  }
 }
 
 .diamond-cube-container {
